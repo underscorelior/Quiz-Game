@@ -3,25 +3,89 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+	--foreground-rgb: 0, 0, 0;
+	--background-start-rgb: 214, 219, 220;
+	--background-end-rgb: 255, 255, 255;
 }
 
 @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+	:root {
+		--foreground-rgb: 255, 255, 255;
+		--background-start-rgb: 0, 0, 0;
+		--background-end-rgb: 0, 0, 0;
+	}
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+	color: rgb(var(--foreground-rgb));
+	background: linear-gradient(
+			to bottom,
+			transparent,
+			rgb(var(--background-end-rgb))
+		)
+		rgb(var(--background-start-rgb));
+}
+
+@layer base {
+	/* for elements */
+	.quiz-button {
+		@apply inline-flex h-14 w-full items-center justify-center gap-2 rounded-2xl border border-neutral-500 px-8 text-center text-lg font-medium tracking-wide text-neutral-600 transition duration-300 hover:border-neutral-700 hover:text-neutral-800 focus:border-neutral-800 focus:text-neutral-800 disabled:cursor-not-allowed disabled:border-neutral-400 disabled:text-neutral-500 disabled:shadow-none;
+	}
+
+	.quiz-button-check {
+		@apply quiz-button mt-3 bg-neutral-200/50;
+	}
+
+	.quiz-button-next {
+		@apply quiz-button mt-3 bg-stone-200/50 hover:bg-stone-300/50;
+	}
+
+	.quiz-button-selected {
+		@apply border-2 border-neutral-700 bg-slate-200/90 !text-neutral-800;
+	}
+
+	.quiz-button-correct {
+		@apply border-2 !border-neutral-700 bg-green-400 !text-neutral-800;
+	}
+
+	.quiz-button-wrong {
+		@apply border-2 !border-neutral-700 bg-red-400/75 !text-neutral-800;
+	}
+}
+
+@layer components {
+	/* for classes */
+}
+
+@layer utilities {
+	/* for text gradients, usage "text-gradient from-[color] to-[color]" */
+	.text-gradient {
+		@apply inline-block bg-clip-text text-transparent;
+	}
+
+	.animation-delay-2000 {
+		animation-delay: 2s;
+	}
+	.animation-delay-4000 {
+		animation-delay: 4s;
+	}
+}
+
+.card-zoom:hover .card-zoom-img {
+	--tw-scale-x: 1.25;
+	--tw-scale-y: 1.25;
+	transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+		rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+		scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+.card-zoom:hover .card-zoom-icon {
+	--tw-scale-x: 1.15;
+	--tw-scale-y: 1.15;
+	transform: translate(var(--tw-translate-x), var(--tw-translate-y))
+		rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y))
+		scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+	opacity: 1;
+}
+.card-zoom:hover .card-zoom-text {
+	background-color: rgb(23 23 23 / 0.8);
 }
