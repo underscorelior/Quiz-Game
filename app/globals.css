@@ -33,7 +33,7 @@ body {
 	}
 
 	.quiz-button-check {
-		@apply quiz-button mt-3 text-[1.3rem] font-semibold;
+		@apply quiz-button mt-3 text-[1.3rem] font-semibold border-[3px];
 	}
 
 	.quiz-button-next {
