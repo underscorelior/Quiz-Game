@@ -2,19 +2,31 @@ import React, { Component } from 'react';
 import QuizButton from './QuizButton';
 import toast from 'react-hot-toast';
 
-class FlagsQuiz extends Component {
-	constructor(props) {
+interface props {
+	updateScore: () => void;
+}
+
+interface state {
+	question: string;
+	options: string[];
+	answer: string;
+	selectedOption: string;
+	isChecked: boolean;
+}
+
+class CapitalsQuiz extends Component<props, state> {
+	constructor(props: props) {
 		super(props);
 		this.state = {
+			question: '',
 			options: [],
 			answer: '',
 			selectedOption: '',
 			isChecked: false,
-			flagUrl: '',
 		};
 	}
 
-	handleOptionSelect = (option) => {
+	handleOptionSelect = (option: string) => {
 		this.setState({ selectedOption: option });
 	};
 
@@ -22,8 +34,11 @@ class FlagsQuiz extends Component {
 		const { selectedOption, answer } = this.state;
 		const isCorrect = selectedOption === answer;
 		localStorage.setItem(
-			'flag-score',
-			parseInt(localStorage.getItem('flag-score')) + (isCorrect ? 1 : 0),
+			'capital-score',
+			String(
+				parseInt(localStorage.getItem('capital-score') || '0') +
+					(isCorrect ? 1 : 0),
+			),
 		);
 		this.props.updateScore();
 		this.setState({ isChecked: true });
@@ -43,16 +58,19 @@ class FlagsQuiz extends Component {
 			const countries = await response.json();
 			const randomIndex = Math.floor(Math.random() * countries.length);
 			const country = countries[randomIndex];
+			country.capital = Array.isArray(country.capital)
+				? country.capital.join(', ')
+				: country.capital;
 
-			let options = [country.name];
+			let options = [country.capital];
 
 			while (options.length < 4) {
 				const randomIndex = Math.floor(Math.random() * countries.length);
 
-				const optionName = countries[randomIndex].name;
-				const option = Array.isArray(optionName)
-					? optionName.join(', ')
-					: optionName;
+				const optionCapital = countries[randomIndex].capital;
+				const option = Array.isArray(optionCapital)
+					? optionCapital.join(', ')
+					: optionCapital;
 
 				if (!options.includes(option)) {
 					options.push(option);
@@ -63,13 +81,12 @@ class FlagsQuiz extends Component {
 				const j = Math.floor(Math.random() * (i + 1));
 				[options[i], options[j]] = [options[j], options[i]];
 			}
-
 			this.setState({
+				question: `What is the capital of ${country.name}?`,
 				options,
-				answer: country.name,
+				answer: country.capital,
 				isChecked: false,
 				selectedOption: '',
-				flagUrl: country.flags,
 			});
 		} catch (error) {
 			console.error(error);
@@ -84,20 +101,11 @@ class FlagsQuiz extends Component {
 	}
 
 	render() {
-		const { flagUrl, options, selectedOption, isChecked } = this.state;
+		const { question, options, selectedOption, isChecked } = this.state;
 		const isDisabled = selectedOption === '';
-
 		return (
-			<section className="flex w-full min-w-[80%] max-w-[80%] flex-col items-center justify-center gap-y-4  md:min-w-[40%] md:max-w-[40%]">
-				<header className="flex w-full flex-col items-center justify-center gap-y-4">
-					<h1 className="mb-3 text-center text-2xl font-semibold">
-						Which country does this flag belong to?
-					</h1>
-					<img
-						src={flagUrl}
-						className="h-auto w-[320px] select-none rounded-3xl p-4 drop-shadow-2xl"
-					/>
-				</header>
+			<div className="flex w-full min-w-[80%] max-w-[80%] flex-col items-center justify-center gap-y-4  md:min-w-[40%] md:max-w-[40%]">
+				<h1 className="mb-3 text-center text-2xl font-semibold">{question}</h1>
 				{options.map((option, index) => (
 					<QuizButton
 						key={index}
@@ -122,9 +130,9 @@ class FlagsQuiz extends Component {
 						Next Question
 					</button>
 				)}
-			</section>
+			</div>
 		);
 	}
 }
 
-export default FlagsQuiz;
+export default CapitalsQuiz;

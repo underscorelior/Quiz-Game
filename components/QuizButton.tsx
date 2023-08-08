@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 
-class QuizButton extends Component {
+interface props {
+	option: string;
+	isSelected: boolean;
+	isDisabled: boolean;
+	isCorrect: boolean;
+	onClick: (option: string) => void;
+}
+
+class QuizButton extends Component<props> {
 	render() {
 		const { option, isSelected, isDisabled, isCorrect, onClick } = this.props;
 		let className = 'quiz-button';
