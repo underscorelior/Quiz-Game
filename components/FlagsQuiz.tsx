@@ -35,13 +35,15 @@ class FlagsQuiz extends Component<props, state> {
 	handleAnswerCheck = () => {
 		const { selectedOption, answer } = this.state;
 		const isCorrect = selectedOption === answer;
-		localStorage.setItem(
-			'flag-score',
-			String(
-				parseInt(localStorage.getItem('flag-score') || '0') +
-					(isCorrect ? 1 : 0),
-			),
-		);
+		if (typeof window !== 'undefined') {
+			localStorage.setItem(
+				'flag-score',
+				String(
+					parseInt(localStorage.getItem('flag-score') || '0') +
+						(isCorrect ? 1 : 0),
+				),
+			);
+		}
 		this.props.updateScore();
 		this.setState({ isChecked: true });
 		toast(isCorrect ? 'Correct!' : `Incorrect! Correct Answer: ${answer}.`, {
@@ -86,7 +88,7 @@ class FlagsQuiz extends Component<props, state> {
 				answer: country.name,
 				isChecked: false,
 				selectedOption: '',
-				flagUrl: country.flags,
+				flagUrl: country.flags.replace('/w320', '').replace('.png', '.svg'),
 			});
 		} catch (error) {
 			console.error(error);
@@ -112,8 +114,10 @@ class FlagsQuiz extends Component<props, state> {
 					</h1>
 					<Image
 						src={flagUrl}
-						className="h-auto w-[320px] select-none rounded-3xl p-4 drop-shadow-2xl"
+						className="m-4 h-[240px] w-[auto] select-none rounded-xl shadow-neutral-100 drop-shadow-2xl"
 						alt="Flag of country"
+						width={320}
+						height={320}
 					/>
 				</header>
 				{options.map((option, index) => (

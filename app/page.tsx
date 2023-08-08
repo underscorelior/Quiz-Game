@@ -5,8 +5,12 @@ import CapitalsQuiz from '../components/CapitalsQuiz.tsx';
 import FlagsQuiz from '../components/FlagsQuiz.tsx';
 import { Toaster } from 'react-hot-toast';
 
+interface quiz {}
+
 export default function Quiz() {
 	const [quizType, setQuizType] = useState(true); // true = capitals, false = flags
+	const [capitalScore, setCapitalScore] = useState('0');
+	const [flagScore, setFlagScore] = useState('0');
 
 	useEffect(() => {
 		if (!localStorage.getItem('capital-score')) {
@@ -15,14 +19,9 @@ export default function Quiz() {
 		if (!localStorage.getItem('flag-score')) {
 			localStorage.setItem('flag-score', '0');
 		}
+		setCapitalScore(localStorage.getItem('capital-score') || '0');
+		setFlagScore(localStorage.getItem('flag-score') || '0');
 	}, []);
-
-	const [capitalScore, setCapitalScore] = useState(
-		localStorage.getItem('capital-score') || 0,
-	);
-	const [flagScore, setFlagScore] = useState(
-		localStorage.getItem('flag-score') || 0,
-	);
 
 	const updateScore = () => {
 		if (quizType) {
