@@ -107,7 +107,7 @@ class CapitalsQuiz extends Component<props, state> {
 		const isDisabled = selectedOption === '';
 		return (
 			<div className="flex w-full min-w-[80%] max-w-[80%] flex-col items-center justify-center gap-y-4  md:min-w-[40%] md:max-w-[40%]">
-				<h1 className="mb-3 text-center text-2xl font-semibold">{question}</h1>
+				<h1 className="quiz-question-text !mb-8">{question}</h1>
 				{options.map((option, index) => (
 					<QuizButton
 						key={index}

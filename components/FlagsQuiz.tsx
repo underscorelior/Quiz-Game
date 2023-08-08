@@ -109,12 +109,12 @@ class FlagsQuiz extends Component<props, state> {
 		return (
 			<section className="flex w-full min-w-[80%] max-w-[80%] flex-col items-center justify-center gap-y-4  md:min-w-[40%] md:max-w-[40%]">
 				<header className="flex w-full flex-col items-center justify-center gap-y-4">
-					<h1 className="mb-3 text-center text-2xl font-semibold">
+					<h1 className="quiz-question-text">
 						Which country does this flag belong to?
 					</h1>
 					<Image
 						src={flagUrl}
-						className="m-4 h-[240px] w-[auto] select-none rounded-xl shadow-neutral-100 drop-shadow-2xl"
+						className="m-4 h-[200px] w-[auto] select-none rounded-xl shadow-neutral-100 drop-shadow-2xl"
 						alt="Flag of country"
 						width={320}
 						height={320}

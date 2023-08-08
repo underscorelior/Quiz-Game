@@ -40,7 +40,7 @@ export default function Quiz() {
 				<FlagsQuiz updateScore={updateScore} />
 			)}
 			<div className="grid w-full max-w-[70%] grid-rows-2 text-xl font-semibold md:max-w-[35%] md:grid-cols-2">
-				<h1 className="">
+				<h1 className="flex items-center justify-between">
 					{quizType ? 'Capital' : 'Flag'} Score:{' '}
 					{quizType ? capitalScore : flagScore}
 				</h1>
