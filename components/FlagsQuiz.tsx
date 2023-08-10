@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import QuizButton from './QuizButton';
 import toast from 'react-hot-toast';
 import Image from 'next/image';
-import { propagateServerField } from 'next/dist/server/lib/render-server';
 
 interface props {
 	updateScore: () => void;
@@ -114,7 +113,7 @@ class FlagsQuiz extends Component<props, state> {
 					</h1>
 					<Image
 						src={flagUrl}
-						className="m-4 h-[200px] w-[auto] select-none rounded-xl shadow-neutral-100 drop-shadow-2xl"
+						className="m-4 h-[200px] w-[auto] rounded-lg select-none -z-10 border-2 border-neutral-50"
 						alt="Flag of country"
 						width={320}
 						height={320}

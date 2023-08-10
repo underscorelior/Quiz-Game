@@ -1,11 +1,10 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import CapitalsQuiz from '../components/CapitalsQuiz.tsx';
-import FlagsQuiz from '../components/FlagsQuiz.tsx';
+import CapitalsQuiz from '@/components/CapitalsQuiz.tsx';
+import FlagsQuiz from '@/components/FlagsQuiz.tsx';
 import { Toaster } from 'react-hot-toast';
 
-interface quiz {}
 
 export default function Quiz() {
 	const [quizType, setQuizType] = useState(true); // true = capitals, false = flags
