@@ -33,11 +33,11 @@ body {
 	}
 
 	.quiz-button-check {
-		@apply quiz-button mt-3 text-[1.3rem] font-semibold border-[3px];
+		@apply quiz-button mt-3 text-[1.3rem] font-semibold border-[3px] border-neutral-300;
 	}
 
 	.quiz-button-next {
-		@apply quiz-button mt-3 bg-black hover:bg-neutral-900/60 text-[1.3rem] font-semibold border-[3px];
+		@apply quiz-button border-neutral-300 mt-3 bg-black hover:bg-neutral-900/60 text-[1.3rem] font-semibold border-[3px];
 	}
 
 	.quiz-button-selected {
