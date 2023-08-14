@@ -132,14 +132,11 @@ class FlagsQuiz extends Component<props, state> {
 		const isDisabled = selectedOption === '';
 
 		return (
-			<section className="flex w-full min-w-[80%] max-w-[80%] flex-col items-center justify-center gap-y-4  md:min-w-[40%] md:max-w-[40%]">
+			<section className="flex w-full min-w-[80%] max-w-[80%] flex-col items-center justify-center gap-y-4 md:min-w-[40%] md:max-w-[40%]">
 				<header className="flex w-full flex-col items-center justify-center gap-y-4">
-					<h1 className="quiz-question-text">
-						Which country does this flag belong to?
-					</h1>
 					<Image
 						src={flagUrl}
-						className="m-4 h-[200px] w-[auto] rounded-lg select-none -z-10 border-2 border-neutral-50"
+						className="m-4 h-[200px] w-[auto] select-none rounded-lg border-2 border-neutral-50"
 						alt="Flag of country"
 						width={320}
 						height={320}

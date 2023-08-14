@@ -132,32 +132,34 @@ class CapitalsQuiz extends Component<props, state> {
 		const { question, options, selectedOption, isChecked } = this.state;
 		const isDisabled = selectedOption === '';
 		return (
-			<div className="flex w-full min-w-[80%] max-w-[80%] flex-col items-center justify-center gap-y-4  md:min-w-[40%] md:max-w-[40%]">
-				<h1 className="quiz-question-text !mb-8">{question}</h1>
-				{options.map((option, index) => (
-					<QuizButton
-						key={index}
-						option={option}
-						isSelected={selectedOption === option}
-						isCorrect={(option === this.state.answer) === isChecked}
-						isDisabled={isChecked}
-						onClick={this.handleOptionSelect}
-					/>
-				))}
-				{!isChecked ? (
-					<button
-						className={'quiz-button-check'}
-						onClick={this.handleAnswerCheck}
-						disabled={isChecked || isDisabled}>
-						Check Answer
-					</button>
-				) : (
-					<button
-						className="quiz-button-next"
-						onClick={this.generateNextQuestion}>
-						Next Question
-					</button>
-				)}
+			<div className="flex w-full flex-col items-center justify-center">
+				<h1 className="mb-12 text-center text-5xl font-semibold">{question}</h1>
+				<section className='min-w-[80%] max-w-[80%] md:min-w-[40%] md:max-w-[40%] gap-y-4'>
+					{options.map((option, index) => (
+						<QuizButton
+							key={index}
+							option={option}
+							isSelected={selectedOption === option}
+							isCorrect={(option === this.state.answer) === isChecked}
+							isDisabled={isChecked}
+							onClick={this.handleOptionSelect}
+						/>
+					))}
+					{!isChecked ? (
+						<button
+							className={'quiz-button-check'}
+							onClick={this.handleAnswerCheck}
+							disabled={isChecked || isDisabled}>
+							Check Answer
+						</button>
+					) : (
+						<button
+							className="quiz-button-next"
+							onClick={this.generateNextQuestion}>
+							Next Question
+						</button>
+					)}
+				</section>
 			</div>
 		);
 	}

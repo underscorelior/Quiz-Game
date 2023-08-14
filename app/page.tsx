@@ -5,7 +5,6 @@ import CapitalsQuiz from '@/components/CapitalsQuiz.tsx';
 import FlagsQuiz from '@/components/FlagsQuiz.tsx';
 import { Toaster } from 'react-hot-toast';
 
-
 export default function Quiz() {
 	const [quizType, setQuizType] = useState(true); // true = capitals, false = flags
 	const [capitalScore, setCapitalScore] = useState('0');
@@ -31,19 +30,21 @@ export default function Quiz() {
 	};
 
 	return (
-		<div className="flex w-full flex-col bg-black text-neutral-100 items-center justify-center gap-y-8 min-h-screen h-full">
+		<div className="flex h-full min-h-screen w-full flex-col items-center justify-center gap-y-8 bg-black text-neutral-100">
 			<Toaster />
 			{quizType ? (
 				<CapitalsQuiz updateScore={updateScore} />
 			) : (
 				<FlagsQuiz updateScore={updateScore} />
 			)}
-			<div className="flex w-full max-w-[70%] text-xl font-semibold md:max-w-[40%]">
+			<div className="flex w-full max-w-[70%] justify-between gap-x-10 text-xl font-semibold md:max-w-[40%]">
 				<h1 className="flex items-center justify-between">
 					{quizType ? 'Capital' : 'Flag'} Score:{' '}
 					{quizType ? capitalScore : flagScore}
 				</h1>
-				<button onClick={() => setQuizType(!quizType)} className="quiz-button">
+				<button
+					onClick={() => setQuizType(!quizType)}
+					className="quiz-button max-w-[65%]">
 					Change Quiz Type
 				</button>
 			</div>
