@@ -31,7 +31,7 @@ export default function Quiz() {
 	};
 
 	return (
-		<div className="flex w-full flex-col items-center justify-center gap-y-8 min-h-screen h-full">
+		<div className="flex w-full flex-col bg-black text-neutral-100 items-center justify-center gap-y-8 min-h-screen h-full">
 			<Toaster />
 			{quizType ? (
 				<CapitalsQuiz updateScore={updateScore} />
