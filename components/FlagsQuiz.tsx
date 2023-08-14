@@ -132,40 +132,40 @@ class FlagsQuiz extends Component<props, state> {
 		const isDisabled = selectedOption === '';
 
 		return (
-			<section className="flex w-full min-w-[80%] max-w-[80%] flex-col items-center justify-center gap-y-4 md:min-w-[40%] md:max-w-[40%]">
-				<header className="flex w-full flex-col items-center justify-center gap-y-4">
-					<Image
-						src={flagUrl}
-						className="m-4 h-[200px] w-[auto] select-none rounded-lg border-2 border-neutral-50"
-						alt="Flag of country"
-						width={320}
-						height={320}
-					/>
-				</header>
-				{options.map((option, index) => (
-					<QuizButton
-						key={index}
-						option={option}
-						isSelected={selectedOption === option}
-						isCorrect={(option === this.state.answer) === isChecked}
-						isDisabled={isChecked}
-						onClick={this.handleOptionSelect}
-					/>
-				))}
-				{!isChecked ? (
-					<button
-						className={'quiz-button-check'}
-						onClick={this.handleAnswerCheck}
-						disabled={isChecked || isDisabled}>
-						Check Answer
-					</button>
-				) : (
-					<button
-						className="quiz-button-next"
-						onClick={this.generateNextQuestion}>
-						Next Question
-					</button>
-				)}
+			<section className="flex w-full flex-col items-center justify-center gap-y-4">
+				<Image
+					src={flagUrl}
+					className="m-2 h-[256px] w-auto select-none rounded-lg border-2 border-neutral-50"
+					alt="Flag of country"
+					width={256}
+					height={256}
+				/>
+				<section className='flex flex-col min-w-[80%] max-w-[80%] md:min-w-[40%] md:max-w-[40%] gap-y-3'>
+					{options.map((option, index) => (
+						<QuizButton
+							key={index}
+							option={option}
+							isSelected={selectedOption === option}
+							isCorrect={(option === this.state.answer) === isChecked}
+							isDisabled={isChecked}
+							onClick={this.handleOptionSelect}
+						/>
+					))}
+					{!isChecked ? (
+						<button
+							className={'quiz-button-check'}
+							onClick={this.handleAnswerCheck}
+							disabled={isChecked || isDisabled}>
+							Check Answer
+						</button>
+					) : (
+						<button
+							className="quiz-button-next"
+							onClick={this.generateNextQuestion}>
+							Next Question
+						</button>
+					)}
+				</section>
 			</section>
 		);
 	}

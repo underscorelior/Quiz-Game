@@ -30,14 +30,14 @@ export default function Quiz() {
 	};
 
 	return (
-		<div className="flex h-full min-h-screen w-full flex-col items-center justify-center gap-y-8 bg-black text-neutral-100">
+		<div className="flex h-full min-h-screen w-full flex-col items-center justify-center gap-y-6 bg-black text-neutral-100">
 			<Toaster />
 			{quizType ? (
 				<CapitalsQuiz updateScore={updateScore} />
 			) : (
 				<FlagsQuiz updateScore={updateScore} />
 			)}
-			<div className="flex w-full max-w-[70%] justify-between gap-x-10 text-xl font-semibold md:max-w-[40%]">
+			<div className="flex w-full max-w-[70%] justify-between text-xl font-semibold md:max-w-[40%]">
 				<h1 className="flex items-center justify-between">
 					{quizType ? 'Capital' : 'Flag'} Score:{' '}
 					{quizType ? capitalScore : flagScore}
