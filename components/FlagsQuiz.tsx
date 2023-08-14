@@ -99,7 +99,33 @@ class FlagsQuiz extends Component<props, state> {
 
 	componentDidMount() {
 		this.generateNextQuestion();
+		window.addEventListener('keydown', this.handleKeyPress);
 	}
+
+	componentWillUnmount() {
+		window.removeEventListener('keydown', this.handleKeyPress);
+	}
+
+	handleKeyPress = (event: KeyboardEvent) => {
+		const { options } = this.state;
+		const key = event.key;
+
+		if (key === 'Enter') {
+			if (!this.state.isChecked) {
+				this.handleAnswerCheck();
+			} else {
+				this.generateNextQuestion();
+			}
+		}
+
+		if (
+			!isNaN(parseInt(key)) &&
+			options[parseInt(key) - 1] &&
+			!this.state.isChecked
+		) {
+			this.setState({ selectedOption: options[parseInt(key) - 1] });
+		}
+	};
 
 	render() {
 		const { flagUrl, options, selectedOption, isChecked } = this.state;
