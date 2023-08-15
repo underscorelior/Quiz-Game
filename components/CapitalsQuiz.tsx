@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import QuizButton from './QuizButton';
 import toast from 'react-hot-toast';
+import countries from '@/assets/countries.json';
 
 interface props {
 	updateScore: () => void;
@@ -54,10 +55,6 @@ class CapitalsQuiz extends Component<props, state> {
 
 	generateNextQuestion = async () => {
 		try {
-			const response = await fetch(
-				'https://underscore.wtf/countries/countries.json',
-			);
-			const countries = await response.json();
 			const randomIndex = Math.floor(Math.random() * countries.length);
 			const country = countries[randomIndex];
 			country.capital = Array.isArray(country.capital)
@@ -133,8 +130,10 @@ class CapitalsQuiz extends Component<props, state> {
 		const isDisabled = selectedOption === '';
 		return (
 			<div className="flex w-full flex-col items-center justify-center">
-				<h1 className="mb-16 text-center text-5xl font-semibold max-w-[80%]">{question}</h1>
-				<section className='flex flex-col min-w-[80%] max-w-[80%] md:min-w-[40%] md:max-w-[40%] gap-y-3'>
+				<h1 className="mb-16 max-w-[80%] text-center text-5xl font-semibold">
+					{question}
+				</h1>
+				<section className="flex min-w-[80%] max-w-[80%] flex-col gap-y-3 md:min-w-[40%] md:max-w-[40%]">
 					{options.map((option, index) => (
 						<QuizButton
 							key={index}
