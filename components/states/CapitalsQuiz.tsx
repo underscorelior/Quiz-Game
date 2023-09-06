@@ -108,7 +108,7 @@ class CapitalsQuiz extends Component<props, state> {
 		const { options } = this.state;
 		const key = event.key;
 
-		if (key === 'Enter' && this.state.isChecked) {
+		if (key === 'Enter' && this.state.selectedOption !== '') {
 			if (!this.state.isChecked) {
 				this.handleAnswerCheck();
 			} else {
