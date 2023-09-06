@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import QuizButton from './QuizButton';
+import QuizButton from '../QuizButton';
 import toast from 'react-hot-toast';
-import countries from '@/assets/countries.json';
+import countries from '@/assets/us_states.json';
 
 interface props {
 	updateScore: () => void;
@@ -36,9 +36,9 @@ class CapitalsQuiz extends Component<props, state> {
 		const isCorrect = selectedOption === answer;
 		if (typeof window !== 'undefined') {
 			localStorage.setItem(
-				'capital-score',
+				'states-capital-score',
 				String(
-					parseInt(localStorage.getItem('capital-score') || '0') +
+					parseInt(localStorage.getItem('states-capital-score') || '0') +
 						(isCorrect ? 1 : 0),
 				),
 			);
@@ -108,7 +108,7 @@ class CapitalsQuiz extends Component<props, state> {
 		const { options } = this.state;
 		const key = event.key;
 
-		if (key === 'Enter' && this.state.selectedOption !== '') {
+		if (key === 'Enter' && this.state.isChecked) {
 			if (!this.state.isChecked) {
 				this.handleAnswerCheck();
 			} else {
