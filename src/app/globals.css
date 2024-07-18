@@ -2,32 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+@layer base {
+	/* for elements */
+	.quiz-button {
+		@apply inline-flex h-14 w-full items-center justify-center rounded-2xl border-2 border-neutral-500 px-8 text-center text-[1.2rem] font-medium tracking-wide text-neutral-100 transition duration-300 hover:border-neutral-700 hover:text-neutral-200 focus:border-neutral-100 focus:text-neutral-200 disabled:cursor-not-allowed disabled:border-neutral-400 disabled:text-neutral-300;
+	}
+
+	.quiz-button-check {
+		@apply quiz-button mt-3 border-[3px] border-neutral-300 text-[1.3rem] font-semibold;
+	}
+
+	.quiz-button-next {
+		@apply quiz-button mt-3 border-[3px] border-neutral-300 bg-black text-[1.3rem] font-semibold hover:bg-neutral-900/60;
+	}
+
+	.quiz-button-selected {
+		@apply border-[3px] border-neutral-300 bg-zinc-900/90 !text-neutral-50 hover:bg-zinc-900;
+	}
+
+	.quiz-button-correct {
+		@apply border-[3px] !border-neutral-300 bg-green-400/90 !text-neutral-50 hover:bg-green-400 disabled:hover:bg-green-400/90;
+	}
+
+	.quiz-button-wrong {
+		@apply border-[3px] !border-neutral-300 bg-red-400/75 !text-neutral-50 hover:bg-red-400 disabled:hover:bg-red-400/75;
+	}
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+@layer components {
+	/* for classes */
 }
 
 @layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+	/* for text gradients, usage "text-gradient from-[color] to-[color]" */
+	.text-gradient {
+		@apply inline-block bg-clip-text text-transparent;
+	}
 }
