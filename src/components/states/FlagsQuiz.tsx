@@ -16,10 +16,6 @@ interface state {
 	flagUrl: string;
 }
 
-interface ConversionDict {
-	[key: string]: string;
-}
-
 class FlagsQuiz extends Component<props, state> {
 	constructor(props: props) {
 		super(props);
@@ -136,16 +132,16 @@ class FlagsQuiz extends Component<props, state> {
 		const isDisabled = selectedOption === '';
 
 		return (
-			<section className="flex w-full flex-col items-center justify-center gap-y-4">
+			<section className='flex w-full flex-col items-center justify-center gap-y-4'>
 				<Image
 					src={flagUrl}
-					className="m-2 h-[256px] w-auto select-none rounded-lg border-2 border-neutral-50"
-					alt="Flag of country"
+					className='m-2 h-[256px] w-auto select-none rounded-lg border-2 border-neutral-50'
+					alt='Flag of country'
 					width={256}
 					draggable={false}
 					height={256}
 				/>
-				<section className="flex min-w-[80%] max-w-[80%] flex-col gap-y-3 md:min-w-[40%] md:max-w-[40%]">
+				<section className='flex min-w-[80%] max-w-[80%] flex-col gap-y-3 md:min-w-[40%] md:max-w-[40%]'>
 					{options.map((option, index) => (
 						<QuizButton
 							key={index}
@@ -160,13 +156,15 @@ class FlagsQuiz extends Component<props, state> {
 						<button
 							className={'quiz-button-check'}
 							onClick={this.handleAnswerCheck}
-							disabled={isChecked || isDisabled}>
+							disabled={isChecked || isDisabled}
+						>
 							Check Answer
 						</button>
 					) : (
 						<button
-							className="quiz-button-next"
-							onClick={this.generateNextQuestion}>
+							className='quiz-button-next'
+							onClick={this.generateNextQuestion}
+						>
 							Next Question
 						</button>
 					)}

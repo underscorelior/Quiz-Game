@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import QuizButton from './QuizButton';
 import toast from 'react-hot-toast';
 import Image from 'next/image';
 import countries from '@/assets/countries.json';
+import QuizButton from './quiz-button';
 
 interface props {
 	updateScore: () => void;
@@ -149,9 +149,9 @@ class FlagsQuiz extends Component<props, state> {
 						<QuizButton
 							key={index}
 							option={option}
-							isSelected={selectedOption === option}
-							isCorrect={(option === this.state.answer) === isChecked}
-							isDisabled={isChecked}
+							selected={selectedOption === option}
+							submitted={isChecked}
+							correct={(option === this.state.answer) === isChecked}
 							onClick={this.handleOptionSelect}
 						/>
 					))}
