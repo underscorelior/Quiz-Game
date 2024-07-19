@@ -11,9 +11,9 @@ const buttonVariants = cva(
 				default: 'bg-background',
 				selected: 'bg-stone-100 dark:bg-stone-900',
 				correct:
-					'bg-[linear-gradient(to_right,#22c55e_50%,#f5f5f4_50%)] dark:bg-[linear-gradient(to_right,#22c55e_50%,#1c1917_50%)]',
+					'border-[linear-gradient(to_right,#22c55e_50%,#f5f5f4_50%)] dark:bg-[linear-gradient(to_right,#22c55e_50%,#1c1917_50%)]',
 				wrong:
-					'bg-[linear-gradient(to_right,#ef4444_50%,#f5f5f4_50%)] dark:bg-[linear-gradient(to_right,#ef4444_50%,#1c1917_50%)]',
+					'border-[linear-gradient(to_right,#ef4444_50%,#f5f5f4_50%)] dark:bg-[linear-gradient(to_right,#ef4444_50%,#1c1917_50%)]',
 			},
 			size: {
 				default: 'h-10 px-4 py-2',
