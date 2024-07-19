@@ -4,16 +4,14 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/utils/cn';
 
 const buttonVariants = cva(
-	'inline-flex items-center min-w-[40%] border-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed bg-200%',
+	'text-center inline-flex items-center min-w-[40%] justify-center border-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed bg-200%',
 	{
 		variants: {
 			variant: {
 				default: 'bg-zinc-50 dark:bg-zinc-950',
 				selected: 'bg-stone-100 dark:bg-stone-900',
-				correct:
-					'bg-[linear-gradient(to_right,#22c55e_50%,#f5f5f4_50%)] dark:bg-[linear-gradient(to_right,#22c55e_50%,#1c1917_50%)]',
-				wrong:
-					'bg-[linear-gradient(to_right,#ef4444_50%,#f5f5f4_50%)] dark:bg-[linear-gradient(to_right,#ef4444_50%,#1c1917_50%)]',
+				correct: 'bg-green-500',
+				wrong: 'bg-red-500',
 			},
 			size: {
 				default: 'h-10 px-4 py-2',
@@ -55,7 +53,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 				ref={ref}
 				{...props}
 			>
-				<p className='text-primary'>{content}</p>
+				<p className='text-center'>{content}</p>
 			</button>
 		);
 	},

@@ -1,5 +1,5 @@
 'use client';
-import Image from 'next/image';
+import { useState } from 'react';
 import QuizButton from '../quiz-button';
 
 export default function MultipleChoiceQuiz({
@@ -11,26 +11,40 @@ export default function MultipleChoiceQuiz({
 	options: string[];
 	answer: number;
 }) {
+	const [selected, setSelected] = useState<string>('');
+	const [submitted, setSubmitted] = useState<boolean>(false);
+
 	return (
 		<section className='flex w-max flex-col items-center justify-center gap-8 border-2 p-10'>
-			<h1>{question}</h1>
+			{question}
 			<div className='flex flex-wrap justify-center gap-4'>
 				{options.map((option, idx) => {
 					return (
 						<QuizButton
 							key={idx}
 							option={option}
-							submitted={false}
-							selected={false}
+							submitted={submitted}
+							selected={selected == option}
 							correct={idx == answer}
-							onClick={function (option: string): void {
-								console.log(option);
-							}}
+							onClick={setSelected}
 						/>
 					);
 				})}
 			</div>
-			<button>Submit</button>
+			{!submitted ? (
+				<button disabled={!selected} onClick={() => setSubmitted(true)}>
+					Submit
+				</button>
+			) : (
+				<button
+					onClick={() => {
+						setSubmitted(false);
+						setSelected('');
+					}}
+				>
+					Next Question
+				</button>
+			)}
 		</section>
 	);
 }
