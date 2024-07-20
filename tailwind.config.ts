@@ -9,26 +9,23 @@ const config: Config = {
 	],
 	theme: {
 		extend: {
-			backgroundImage: {
-				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-				'gradient-conic':
-					'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
-			},
 			backgroundSize: {
 				'200%': '200%',
+				'250%': '250%',
 			},
 			animation: {
-				answered: 'answered 0.5s cubic-bezier(1,0,.9,1)',
+				answered: 'answered 0.75s cubic-bezier(1,0,.9,1)',
+				'button-scale': 'scale 300ms ease-in-out 550ms forwards',
 				'button-width': 'width 300ms ease 100ms forwards',
 				'button-height': 'height 200ms ease 300ms forwards',
 				'button-width2': 'width 100ms ease 500ms forwards',
 				'button-height2': 'height 0ms ease 600ms forwards',
-				'button-scale': 'scale 300ms ease-in-out 650ms forwards',
 			},
 			keyframes: {
 				answered: {
 					from: { 'background-position': '100%' },
-					to: { 'background-position': '0%' },
+					'80%': { transform: 'scale(1.025)', 'background-position': '0%' },
+					to: { transform: 'scale(1)' },
 				},
 				width: {
 					'0%': { width: '0' },

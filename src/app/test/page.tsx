@@ -76,8 +76,10 @@ export default function TestPage() {
 				</div>
 			</button>
 
-			<button className='inline-flex h-10 max-w-[40%] items-center justify-center whitespace-nowrap rounded-md border-2 bg-200% px-4 py-2 transition-colors focus-visible:outline-none disabled:cursor-not-allowed'>
-				Cuba
+			<button className='bg-250% inline-flex min-w-[20%] max-w-[40%] items-center justify-center whitespace-nowrap rounded-md bg-[linear-gradient(130deg,#22c55e_55%,#f5f5f4_45%)] p-0.5 hover:animate-answered'>
+				<span className='h-10 w-full rounded-md bg-slate-50 px-4 py-2'>
+					Cuba
+				</span>
 			</button>
 		</div>
 	);
