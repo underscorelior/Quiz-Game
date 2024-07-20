@@ -3,6 +3,7 @@
 import MultipleChoiceQuiz from '@/components/quiz/multiple-choice';
 import worldJSON from '@/assets/countries.json';
 import React, { useEffect, useState } from 'react';
+import { arrStrToStr, randomElement } from '@/utils/utils';
 
 type Item = {
 	flags: string;
@@ -17,26 +18,20 @@ type Quiz = {
 };
 
 export default function TestPage() {
-	const [quiz, setQuiz] = useState<Quiz | {}>({});
+	const [quiz, setQuiz] = useState<Quiz | null>(null);
 
 	function generateNextQuestion() {
-		function arrStrToStr(str: string | string[]): string {
-			// Convert string or string array to string
-			return Array.isArray(str) ? str.join(', ') : str;
-		}
-
 		const countries: Item[] = worldJSON;
 
 		const options: Item[] = [];
 
-		const answerOption: Item =
-			countries[Math.floor(Math.random() * countries.length)];
+		const answerOption: Item = randomElement(countries) as Item;
 
 		options.push(answerOption);
 		countries.filter((item) => item !== answerOption);
 
 		for (let i = 0; i < 3; i++) {
-			const opt = countries[Math.floor(Math.random() * countries.length)];
+			const opt = randomElement(countries) as Item;
 			options.push(opt);
 			countries.filter((item) => item !== opt);
 		}
@@ -47,12 +42,13 @@ export default function TestPage() {
 		}
 
 		const output: Quiz = {
-			question: 'Test',
+			question: `What is the capital of ${answerOption.name}?`,
 			options: options.map((option) => arrStrToStr(option.capital)),
 			answer: arrStrToStr(answerOption.capital),
 		};
 
 		console.log(output);
+		setQuiz(output);
 	}
 
 	useEffect(() => {
@@ -60,24 +56,28 @@ export default function TestPage() {
 	}, []);
 
 	return (
-		<div className='p-10'>
+		<div className='flex flex-col items-center justify-center gap-10 p-10'>
 			<MultipleChoiceQuiz
 				question={
-					<h1 className='text-2xl font-bold'>What is the capital of Canada?</h1>
+					<h1 className='text-2xl font-bold'>{quiz?.question || ''}</h1>
 				}
-				options={['Quebec', 'United States', 'Mexico', 'Ottawa']}
-				answer={3}
+				options={quiz?.options || []}
+				answer={quiz?.answer || ''}
 			/>
-			<button className='duration-400 ease hover:animate-button-scale group relative h-10 min-w-[20%] cursor-pointer overflow-hidden rounded-md px-4 py-2 transition-all'>
+			<button className='relative h-10 min-w-[20%] cursor-pointer overflow-hidden rounded-md px-4 py-2 transition-all hover:animate-button-scale'>
 				<div className='absolute left-0 top-0 h-full w-full rounded-md border-2 px-4 py-2'>
 					cuba
 				</div>
 				<div className='pointer-events-none absolute inset-0'>
-					<div className='before:group-hover:animate-button-width before:absolute before:left-0 before:top-0 before:h-[2px] before:w-0 before:rounded-tl-md before:rounded-tr-md before:bg-green-500'></div>
-					<div className='before:group-hover:animate-button-height before:absolute before:right-0 before:top-0 before:h-0 before:w-[2px] before:rounded-br-md before:rounded-tr-md before:bg-green-500'></div>
-					<div className='before:group-hover:animate-button-width2 before:absolute before:bottom-0 before:right-0 before:h-[2px] before:w-0 before:rounded-bl-md before:rounded-br-md before:bg-green-500'></div>
-					<div className='before:group-hover:animate-button-height2 before:absolute before:bottom-0 before:left-0 before:h-0 before:w-[2px] before:rounded-bl-md before:rounded-tl-md before:bg-green-500'></div>
+					<div className='before:absolute before:left-0 before:top-0 before:h-[2px] before:w-0 before:rounded-tl-md before:rounded-tr-md before:bg-green-500 before:group-hover:animate-button-width'></div>
+					<div className='before:absolute before:right-0 before:top-0 before:h-0 before:w-[2px] before:rounded-br-md before:rounded-tr-md before:bg-green-500 before:group-hover:animate-button-height'></div>
+					<div className='before:absolute before:bottom-0 before:right-0 before:h-[2px] before:w-0 before:rounded-bl-md before:rounded-br-md before:bg-green-500 before:group-hover:animate-button-width2'></div>
+					<div className='before:absolute before:bottom-0 before:left-0 before:h-0 before:w-[2px] before:rounded-bl-md before:rounded-tl-md before:bg-green-500 before:group-hover:animate-button-height2'></div>
 				</div>
+			</button>
+
+			<button className='inline-flex h-10 max-w-[40%] items-center justify-center whitespace-nowrap rounded-md border-2 bg-200% px-4 py-2 transition-colors focus-visible:outline-none disabled:cursor-not-allowed'>
+				Cuba
 			</button>
 		</div>
 	);

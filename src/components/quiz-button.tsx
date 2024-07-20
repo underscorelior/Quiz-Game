@@ -1,26 +1,26 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
-
 import { cn } from '@/utils/cn';
 
 const buttonVariants = cva(
-	'text-center inline-flex items-center min-w-[40%] justify-center border-2 whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 disabled:cursor-not-allowed bg-200%',
+	'inline-flex max-w-[40%] items-center justify-center whitespace-nowrap rounded-md border-2 bg-200% transition-colors focus-visible:outline-none disabled:cursor-not-allowed',
 	{
 		variants: {
 			variant: {
-				default: 'bg-zinc-50 dark:bg-zinc-950',
-				selected: 'bg-stone-100 dark:bg-stone-900',
-				correct: 'bg-green-500',
-				wrong: 'bg-red-500',
+				default:
+					'bg-white enabled:hover:border-zinc-500 enabled:hover:bg-zinc-50 disabled:text-zinc-600',
+				selected: 'bg-zinc-200 border-zinc-600',
+				correct:
+					'bg-[linear-gradient(to_right,#22c55e_50%,#f5f5f4_50%)] border-zinc-500',
+				wrong:
+					'bg-[linear-gradient(to_right,#ef4444_50%,#f5f5f4_50%)] border-zinc-500',
 			},
 			size: {
 				default: 'h-10 px-4 py-2',
 				sm: 'h-9 rounded-md px-3',
 				lg: 'h-11 rounded-md px-8',
 				xl: 'h-11 rounded-md p-6 px-7 text-lg',
-				xl2: 'h-11 rounded-md p-7 text-xl',
 				icon: 'h-10 w-10',
-				info: 'p-0 text-lg font-medium',
 			},
 			answered: {
 				true: 'animate-answered fill-mode-[forwards]',
@@ -53,7 +53,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
 				ref={ref}
 				{...props}
 			>
-				<p className='text-center'>{content}</p>
+				<p className='text-center text-sm font-medium'>{content}</p>
 			</button>
 		);
 	},

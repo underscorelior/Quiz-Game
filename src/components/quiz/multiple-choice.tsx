@@ -9,7 +9,7 @@ export default function MultipleChoiceQuiz({
 }: {
 	question: React.ReactNode;
 	options: string[];
-	answer: number;
+	answer: string;
 }) {
 	const [selected, setSelected] = useState<string>('');
 	const [submitted, setSubmitted] = useState<boolean>(false);
@@ -25,7 +25,7 @@ export default function MultipleChoiceQuiz({
 							option={option}
 							submitted={submitted}
 							selected={selected == option}
-							correct={idx == answer}
+							correct={option == answer}
 							onClick={setSelected}
 						/>
 					);
