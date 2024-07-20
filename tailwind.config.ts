@@ -14,32 +14,18 @@ const config: Config = {
 				'300%': '300%',
 			},
 			animation: {
-				answered: 'answered 0.75s ease-in-out',
-				'button-scale': 'scale 300ms ease-in-out 550ms forwards',
-				'button-width': 'width 300ms ease 100ms forwards',
-				'button-height': 'height 200ms ease 300ms forwards',
-				'button-width2': 'width 100ms ease 500ms forwards',
-				'button-height2': 'height 0ms ease 600ms forwards',
+				answered: 'answered 0.65s ease-in-out',
 			},
 			keyframes: {
 				answered: {
 					from: { 'background-position': '95%' },
-					'80%': { transform: 'scale(1.025)', 'background-position': '0%' },
+					'65%': { transform: 'scale(1.025)' },
+					'80%': { 'background-position': '0%' },
 					to: { transform: 'scale(1)' },
 				},
-				width: {
-					'0%': { width: '0' },
-					'100%': { width: '100%' },
-				},
-				height: {
-					'0%': { height: '0' },
-					'100%': { height: '100%' },
-				},
-				scale: {
-					'0%': { transform: 'scale(1)' },
-					'50%': { transform: 'scale(1.05)' },
-					'100%': { transform: 'scale(1)' },
-				},
+			},
+			borderWidth: {
+				3: '3px',
 			},
 		},
 	},

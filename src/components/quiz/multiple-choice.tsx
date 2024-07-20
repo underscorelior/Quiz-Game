@@ -59,7 +59,7 @@ export default function MultipleChoiceQuiz({
 	return (
 		<section className='flex w-[40%] flex-col items-center justify-center gap-8 border-2 p-10'>
 			{quiz?.question}
-			<div className='flex flex-wrap justify-center gap-4'>
+			<div className='grid w-full grid-cols-2 justify-center gap-4'>
 				{quiz?.options.map((option, idx) => {
 					return (
 						<QuizButton
@@ -69,12 +69,17 @@ export default function MultipleChoiceQuiz({
 							selected={selected == option}
 							correct={option == quiz.answer.format}
 							onClick={setSelected}
+							className={'w-full'}
 						/>
 					);
 				})}
 			</div>
 			{!submitted ? (
-				<button disabled={!selected} onClick={() => setSubmitted(true)}>
+				<button
+					disabled={!selected}
+					onClick={() => setSubmitted(true)}
+					className='rounded-md border-2 border-zinc-500 px-4 py-2 font-medium text-zinc-700 enabled:hover:border-zinc-700 enabled:hover:bg-zinc-100 disabled:cursor-not-allowed disabled:border-zinc-300 disabled:bg-zinc-50 disabled:text-zinc-500'
+				>
 					Submit
 				</button>
 			) : (

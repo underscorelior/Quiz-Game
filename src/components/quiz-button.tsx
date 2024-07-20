@@ -3,12 +3,12 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/utils/cn';
 
 const outerButton = cva(
-	'inline-flex group max-w-[40%] items-center justify-center whitespace-nowrap rounded-md bg-300% transition-colors focus-visible:outline-none p-0.5 disabled:cursor-not-allowed',
+	'inline-flex group w-full items-center justify-center whitespace-nowrap rounded-md bg-300% transition-colors focus-visible:outline-none p-[3px] disabled:cursor-not-allowed',
 	{
 		variants: {
 			variant: {
-				default: 'bg-white enabled:hover:border-zinc-400 border-2 p-0',
-				selected: 'border-zinc-500 border-2 p-0',
+				default: 'bg-white enabled:hover:border-zinc-400 border-3 p-0',
+				selected: 'border-zinc-500 border-3 p-0',
 				correct: 'bg-[linear-gradient(130deg,#22c55e_55%,#71717a_45%)]',
 				wrong: 'bg-[linear-gradient(130deg,#ef4444_55%,#71717a_45%)]',
 			},
@@ -87,12 +87,14 @@ export default function QuizButton({
 	selected,
 	correct,
 	onClick,
+	className,
 }: {
 	option: string;
 	submitted: boolean;
 	selected: boolean;
 	correct: boolean;
 	onClick: (option: string) => void;
+	className?: string;
 }) {
 	return (
 		<Button
@@ -111,6 +113,7 @@ export default function QuizButton({
 			onClick={() => {
 				onClick(option);
 			}}
+			className={className}
 		/>
 	);
 }
