@@ -11,10 +11,10 @@ const config: Config = {
 		extend: {
 			backgroundSize: {
 				'200%': '200%',
-				'250%': '250%',
+				'300%': '300%',
 			},
 			animation: {
-				answered: 'answered 0.75s cubic-bezier(1,0,.9,1)',
+				answered: 'answered 0.75s ease-in-out',
 				'button-scale': 'scale 300ms ease-in-out 550ms forwards',
 				'button-width': 'width 300ms ease 100ms forwards',
 				'button-height': 'height 200ms ease 300ms forwards',
@@ -23,7 +23,7 @@ const config: Config = {
 			},
 			keyframes: {
 				answered: {
-					from: { 'background-position': '100%' },
+					from: { 'background-position': '95%' },
 					'80%': { transform: 'scale(1.025)', 'background-position': '0%' },
 					to: { transform: 'scale(1)' },
 				},
