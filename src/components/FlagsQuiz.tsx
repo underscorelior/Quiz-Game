@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import toast from 'react-hot-toast';
 import Image from 'next/image';
-import countries from '@/assets/countries.json';
+import countries from '@/assets/json/world.json';
 import QuizButton from './quiz-button';
 
 interface props {

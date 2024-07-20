@@ -1,4 +1,4 @@
-import worldJSON from '@/assets/countries.json';
+import worldJSON from '@/assets/json/world.json';
 import React from 'react';
 import FlagQuiz from '@/components/quiz/mcq-flag';
 

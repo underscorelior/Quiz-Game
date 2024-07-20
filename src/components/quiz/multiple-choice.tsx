@@ -57,7 +57,7 @@ export default function MultipleChoiceQuiz({
 	}, []);
 
 	return (
-		<section className='flex w-max flex-col items-center justify-center gap-8 border-2 p-10'>
+		<section className='flex h-[40%] max-h-[40%] w-[60%] max-w-[60%] flex-col items-center justify-center gap-8 border-2 p-10'>
 			{quiz?.question}
 			<div className='flex flex-wrap justify-center gap-4'>
 				{quiz?.options.map((option, idx) => {
