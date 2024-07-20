@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import QuizButton from '../QuizButton';
 import toast from 'react-hot-toast';
-import countries from '@/assets/us_states.json';
+import countries from '@/assets/json/us_states.json';
 
 interface props {
 	updateScore: () => void;
@@ -129,11 +129,11 @@ class CapitalsQuiz extends Component<props, state> {
 		const { question, options, selectedOption, isChecked } = this.state;
 		const isDisabled = selectedOption === '';
 		return (
-			<div className="flex w-full flex-col items-center justify-center">
-				<h1 className="mb-16 max-w-[80%] text-center text-5xl font-semibold">
+			<div className='flex w-full flex-col items-center justify-center'>
+				<h1 className='mb-16 max-w-[80%] text-center text-5xl font-semibold'>
 					{question}
 				</h1>
-				<section className="flex min-w-[80%] max-w-[80%] flex-col gap-y-3 md:min-w-[40%] md:max-w-[40%]">
+				<section className='flex min-w-[80%] max-w-[80%] flex-col gap-y-3 md:min-w-[40%] md:max-w-[40%]'>
 					{options.map((option, index) => (
 						<QuizButton
 							key={index}
@@ -148,13 +148,15 @@ class CapitalsQuiz extends Component<props, state> {
 						<button
 							className={'quiz-button-check'}
 							onClick={this.handleAnswerCheck}
-							disabled={isChecked || isDisabled}>
+							disabled={isChecked || isDisabled}
+						>
 							Check Answer
 						</button>
 					) : (
 						<button
-							className="quiz-button-next"
-							onClick={this.generateNextQuestion}>
+							className='quiz-button-next'
+							onClick={this.generateNextQuestion}
+						>
 							Next Question
 						</button>
 					)}

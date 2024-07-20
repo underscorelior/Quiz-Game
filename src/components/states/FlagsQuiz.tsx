@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import QuizButton from '../QuizButton';
 import toast from 'react-hot-toast';
 import Image from 'next/image';
-import countries from '@/assets/us_states.json';
+import countries from '@/assets/json/us_states.json';
 
 interface props {
 	updateScore: () => void;

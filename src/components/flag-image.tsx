@@ -2,13 +2,15 @@ import Image from 'next/image';
 
 export default function FlagImage({ url }: { url: string }) {
 	return (
-		<div className='relative flex aspect-video h-[50%] w-auto items-center justify-center overflow-hidden'>
+		<div className=''>
 			<Image
-				className='aspect-video h-full w-auto rounded-lg border-4 border-zinc-800'
-				fill
+				// className='h-full max-h-[40%] w-auto max-w-[40%] select-none overflow-clip rounded-lg border-2 border-zinc-800'
 				src={url}
 				alt='Flag'
-				loading='eager'
+				// loading='eager'
+				width={256}
+				draggable={false}
+				height={256}
 			/>
 		</div>
 	);
