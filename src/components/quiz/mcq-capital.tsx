@@ -5,7 +5,7 @@ import MultipleChoiceQuiz from './multiple-choice';
 export default function CapitalQuiz({ options }: { options: Option[] }) {
 	function createQuestion(option: Option): React.ReactNode {
 		return (
-			<h1 className='text-center text-3xl font-semibold'>{`What is the capital of ${option.name}?`}</h1>
+			<h1 className='flex min-h-[6rem] items-center text-center text-3xl font-semibold'>{`What is the capital of ${option.name}?`}</h1>
 		);
 	}
 

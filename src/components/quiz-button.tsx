@@ -3,7 +3,7 @@ import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/utils/cn';
 
 const outerButton = cva(
-	'inline-flex group w-full items-center justify-center whitespace-nowrap rounded-md bg-300% transition-colors focus-visible:outline-none p-[3px] disabled:cursor-not-allowed',
+	'inline-flex group w-full items-center justify-center rounded-md bg-300% transition-colors focus-visible:outline-none p-[3px] disabled:cursor-not-allowed',
 	{
 		variants: {
 			variant: {
@@ -28,7 +28,7 @@ const outerButton = cva(
 );
 
 const buttonVariants = cva(
-	'w-full rounded-[4px] text-center text-sm font-medium flex items-center justify-center',
+	'w-full rounded-[4px] text-center text-base font-medium flex items-center justify-center',
 	{
 		variants: {
 			variant: {
@@ -39,7 +39,7 @@ const buttonVariants = cva(
 				wrong: 'bg-zinc-100',
 			},
 			size: {
-				default: 'h-10 px-4 py-2',
+				default: 'h-12 p-4',
 				sm: 'h-9 rounded-md px-3',
 				lg: 'h-11 rounded-md px-8',
 				xl: 'h-11 rounded-md p-6 px-7 text-lg',
@@ -115,5 +115,29 @@ export default function QuizButton({
 			}}
 			className={className}
 		/>
+	);
+}
+
+export function EtcQuizButton({
+	disabled,
+	onClick,
+	className,
+	children,
+}: {
+	disabled?: boolean;
+	onClick: () => void;
+	className?: string;
+	children: React.ReactNode;
+}) {
+	return (
+		<button
+			disabled={disabled}
+			onClick={() => {
+				onClick();
+			}}
+			className='rounded-md border-2 border-zinc-500 px-6 py-2 text-lg font-medium text-zinc-800 enabled:hover:border-zinc-700 enabled:hover:bg-zinc-100 disabled:cursor-not-allowed disabled:border-zinc-300 disabled:bg-zinc-50 disabled:text-zinc-500'
+		>
+			{children}
+		</button>
 	);
 }

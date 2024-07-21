@@ -1,6 +1,8 @@
+// TODO: Add detecting enter key for submitting, also flag obfuscation
+
 'use client';
 import { useEffect, useState } from 'react';
-import QuizButton from '../quiz-button';
+import QuizButton, { EtcQuizButton } from '../quiz-button';
 import { randomElement } from '@/utils/utils';
 
 export default function MultipleChoiceQuiz({
@@ -50,6 +52,8 @@ export default function MultipleChoiceQuiz({
 		};
 
 		setQuiz(output);
+		setSubmitted(false);
+		setSelected('');
 	}
 
 	useEffect(() => {
@@ -57,9 +61,9 @@ export default function MultipleChoiceQuiz({
 	}, []);
 
 	return (
-		<section className='flex w-[40%] flex-col items-center justify-center gap-8 border-2 p-10'>
+		<section className='flex w-[50%] flex-col items-center justify-center gap-8 border-2 p-10'>
 			{quiz?.question}
-			<div className='grid w-full grid-cols-2 justify-center gap-4'>
+			<div className='grid w-full grid-cols-2 justify-center gap-x-8 gap-y-6'>
 				{quiz?.options.map((option, idx) => {
 					return (
 						<QuizButton
@@ -75,22 +79,13 @@ export default function MultipleChoiceQuiz({
 				})}
 			</div>
 			{!submitted ? (
-				<button
-					disabled={!selected}
-					onClick={() => setSubmitted(true)}
-					className='rounded-md border-2 border-zinc-500 px-4 py-2 font-medium text-zinc-700 enabled:hover:border-zinc-700 enabled:hover:bg-zinc-100 disabled:cursor-not-allowed disabled:border-zinc-300 disabled:bg-zinc-50 disabled:text-zinc-500'
-				>
+				<EtcQuizButton disabled={!selected} onClick={() => setSubmitted(true)}>
 					Submit
-				</button>
+				</EtcQuizButton>
 			) : (
-				<button
-					onClick={() => {
-						setSubmitted(false);
-						setSelected('');
-					}}
-				>
+				<EtcQuizButton onClick={() => generateQuiz()}>
 					Next Question
-				</button>
+				</EtcQuizButton>
 			)}
 		</section>
 	);
