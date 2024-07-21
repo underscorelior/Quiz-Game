@@ -11,6 +11,8 @@ const outerButton = cva(
 				selected: 'border-zinc-500 border-3 p-0',
 				correct: 'bg-[linear-gradient(130deg,#22c55e_55%,#71717a_45%)]',
 				wrong: 'bg-[linear-gradient(130deg,#ef4444_55%,#71717a_45%)]',
+				correct_unsel:
+					'bg-[linear-gradient(130deg,#22c55e90_55%,#71717a_45%)] animate-correct-unsel border-0 animate-shake',
 			},
 			answered: {
 				true: '',
@@ -28,7 +30,7 @@ const outerButton = cva(
 );
 
 const buttonVariants = cva(
-	'w-full rounded-[4px] text-center text-base font-medium flex items-center justify-center',
+	'w-full rounded-[3px] text-center text-base font-medium flex items-center justify-center',
 	{
 		variants: {
 			variant: {
@@ -37,6 +39,8 @@ const buttonVariants = cva(
 				selected: 'bg-zinc-100',
 				correct: 'bg-zinc-100',
 				wrong: 'bg-zinc-100',
+				correct_unsel:
+					'bg-white group-enabled:group-hover:bg-zinc-50 group-disabled:text-zinc-400 group-disabled:transition-colors group-disabled:duration-200',
 			},
 			size: {
 				default: 'h-12 p-4',
@@ -96,16 +100,48 @@ export default function QuizButton({
 	onClick: (option: string) => void;
 	className?: string;
 }) {
+	function x() {
+		if (submitted) {
+			if (selected) {
+				if (correct) {
+					('correct');
+				} else {
+					('wrong');
+				}
+			} else {
+				if (correct) {
+					('correct_unsel');
+				} else {
+					('default');
+				}
+			}
+		} else {
+			if (selected) {
+				('selected');
+			} else {
+				('default');
+			}
+		}
+	}
 	return (
+		// If submitted, selected and correct = correct
+		// If submitted, selected, and not correct = wrong
+		// if Submitted, not selected, and correct = correct_unsel
+		// if not submitted, selected = selected
+		// If not submitted, not selected = default
 		<Button
 			variant={
-				selected
-					? submitted
+				submitted
+					? selected
 						? correct
 							? 'correct'
 							: 'wrong'
-						: 'selected'
-					: 'default'
+						: correct
+							? 'correct_unsel'
+							: 'default'
+					: selected
+						? 'selected'
+						: 'default'
 			}
 			answered={submitted}
 			content={option}

@@ -1,8 +1,46 @@
+/**
+ * AM SAVING THIS TO CHECK FOR OLD FUNCTIONALITY
+ */
+
 import React, { Component } from 'react';
-import QuizButton from '../QuizButton';
 import toast from 'react-hot-toast';
 import Image from 'next/image';
 import countries from '@/assets/json/us_states.json';
+
+interface ps {
+	option: string;
+	isSelected: boolean;
+	isDisabled: boolean;
+	isCorrect: boolean;
+	onClick: (option: string) => void;
+}
+
+class QuizButton extends Component<ps> {
+	render() {
+		const { option, isSelected, isDisabled, isCorrect, onClick } = this.props;
+		let className = 'quiz-button';
+
+		if (isDisabled) {
+			className += isSelected
+				? isCorrect
+					? ' quiz-button-correct'
+					: ' quiz-button-wrong'
+				: ' quiz-button-generic';
+		} else if (isSelected) {
+			className += ' quiz-button-selected';
+		}
+
+		return (
+			<button
+				className={className}
+				onClick={() => onClick(option)}
+				disabled={isDisabled}
+			>
+				{option}
+			</button>
+		);
+	}
+}
 
 interface props {
 	updateScore: () => void;

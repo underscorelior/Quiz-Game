@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+/* TODO: Remove these elements */
+
 @layer base {
 	/* for elements */
 	.quiz-button {

@@ -1,5 +1,7 @@
 // TODO: Add detecting enter key for submitting, also flag obfuscation
-
+// TODO: Add skeleton components to prevent shifting
+// TODO: Make flags and capitals take up same height (maybe setting it here)
+// TODO: Wrong answer somehow
 'use client';
 import { useEffect, useState } from 'react';
 import QuizButton, { EtcQuizButton } from '../quiz-button';
@@ -19,19 +21,19 @@ export default function MultipleChoiceQuiz({
 	const [quiz, setQuiz] = useState<Quiz | null>(null);
 
 	function generateRandomOptions(): { options: Option[]; answer: Option } {
-		const countries: Option[] = optJSON;
+		let countries: Option[] = optJSON;
 
 		const options: Option[] = [];
 
 		const answerOption: Option = randomElement(countries) as Option;
 
 		options.push(answerOption);
-		countries.filter((item) => item !== answerOption);
+		countries = countries.filter((item) => item.name !== answerOption.name);
 
 		for (let i = 0; i < 3; i++) {
 			const opt = randomElement(countries) as Option;
 			options.push(opt);
-			countries.filter((item) => item !== opt);
+			countries = countries.filter((item) => item.name !== opt.name);
 		}
 
 		for (let i = options.length - 1; i > 0; i--) {
@@ -62,7 +64,7 @@ export default function MultipleChoiceQuiz({
 
 	return (
 		<section className='flex w-[50%] flex-col items-center justify-center gap-8 border-2 p-10'>
-			{quiz?.question}
+			<div>{quiz?.question}</div>
 			<div className='grid w-full grid-cols-2 justify-center gap-x-8 gap-y-6'>
 				{quiz?.options.map((option, idx) => {
 					return (
