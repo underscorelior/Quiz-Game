@@ -14,8 +14,8 @@ const config: Config = {
 				'300%': '300%',
 			},
 			animation: {
-				answered: 'answered 0.75s ease-in-out',
-				shake: 'shake 1s ease 0.7s',
+				answered: 'answered 0.55s ease-in-out',
+				shake: 'shake 1s ease 0.5s',
 				'correct-unsel': 'correct_unsel 0.5s ease',
 			},
 			keyframes: {

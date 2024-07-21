@@ -19,7 +19,9 @@ export default function FlagQuiz({ options }: { options: Option[] }) {
 	return (
 		<MultipleChoiceQuiz
 			options={options}
-			questionSkeleton={<Skeleton className='h-4 w-[250px]' />}
+			questionSkeleton={
+				<Skeleton className='aspect-video h-[12rem] w-auto border-2 border-zinc-800' />
+			}
 			createQuestion={createQuestion}
 			formatOption={formatOption}
 		/>

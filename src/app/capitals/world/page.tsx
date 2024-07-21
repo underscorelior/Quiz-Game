@@ -28,7 +28,7 @@ export default function Quiz() {
 				</h1> */}
 				<Link
 					href='/flags/world/'
-					className='max-w-[65%] rounded-md border-2 px-4 py-3'
+					className='w-[80%] rounded-md border-2 px-4 py-3'
 				>
 					World Flags Quiz
 				</Link>

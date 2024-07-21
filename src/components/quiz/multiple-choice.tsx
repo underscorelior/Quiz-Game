@@ -1,9 +1,8 @@
-// TODO: Add detecting enter key for submitting, also flag obfuscation
-// TODO: Add skeleton components to prevent shifting
-// TODO: Make flags and capitals take up same height (maybe setting it here)
-// TODO: Wrong answer somehow
+// TODO: Obfuscate images to prevent cheating
+// TODO: Make a better randomization (remove last 10 from array of available questions)
+
 'use client';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import QuizButton, { EtcQuizButton } from '../quiz-button';
 import { randomElement } from '@/utils/utils';
 import { Skeleton } from '../skeleton';
@@ -19,6 +18,7 @@ export default function MultipleChoiceQuiz({
 	createQuestion: (option: Option) => React.ReactNode;
 	formatOption: (option: Option) => string;
 }) {
+	const ref = useRef<HTMLDivElement>(null);
 	const [selected, setSelected] = useState<string>('');
 	const [submitted, setSubmitted] = useState<boolean>(false);
 	const [quiz, setQuiz] = useState<Quiz | null>(null);
@@ -68,26 +68,31 @@ export default function MultipleChoiceQuiz({
 		generateQuiz();
 	}, []);
 
+	useEffect(() => {
+		if (ref.current) {
+			ref.current.focus();
+		}
+	}, [submitted]);
+
 	function handleKeyDown(event: React.KeyboardEvent<HTMLDivElement>) {
-		console.log(event.key);
 		if (event.key === 'Enter') {
 			if (!submitted && selected) {
 				setSubmitted(true);
+			} else if (submitted) {
+				generateQuiz();
 			}
-			// else if (submitted) {
-			// 	generateQuiz();
-			// }
 		}
 	}
 
 	return (
 		<section
-			className='flex w-[80%] max-w-xl flex-col items-center justify-center gap-8 rounded-md border-2 px-6 py-8'
+			ref={ref}
+			className='flex w-[90%] max-w-xl flex-col items-center justify-center gap-8 rounded-md border-4 px-6 py-8 focus-within:outline-none'
 			onKeyDown={handleKeyDown}
 			tabIndex={0}
 		>
 			{loaded ? <div>{quiz?.question}</div> : questionSkeleton}
-			<div className='flex w-full flex-col justify-center gap-x-8 gap-y-4 md:grid md:grid-cols-2 lg:gap-y-6'>
+			<div className='flex w-[95%] flex-col justify-center gap-x-8 gap-y-4 md:grid md:grid-cols-2 lg:w-full lg:gap-y-6'>
 				{loaded
 					? quiz?.options.map((option, idx) => {
 							return (

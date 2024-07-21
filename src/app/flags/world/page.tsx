@@ -28,7 +28,7 @@ export default function Quiz() {
 				</h1> */}
 				<Link
 					href='/capitals/world/'
-					className='max-w-[65%] rounded-md border-2 px-4 py-3'
+					className='w-[80%] rounded-md border-2 px-4 py-3'
 				>
 					World Capitals Quiz
 				</Link>
