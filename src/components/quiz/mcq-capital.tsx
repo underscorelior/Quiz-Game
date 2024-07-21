@@ -17,7 +17,13 @@ export default function CapitalQuiz({ options }: { options: Option[] }) {
 	return (
 		<MultipleChoiceQuiz
 			options={options}
-			questionSkeleton={<Skeleton className='h-4 w-[250px]' />}
+			questionSkeleton={
+				<div className='flex min-h-[9rem] w-full flex-col items-center justify-center gap-1 lg:min-h-[6rem]'>
+					<Skeleton className='h-8 w-[90%]' />
+					<Skeleton className='h-8 w-[60%]' />
+					<Skeleton className='h-8 w-[70%] lg:hidden' />
+				</div>
+			}
 			createQuestion={createQuestion}
 			formatOption={formatOption}
 		/>

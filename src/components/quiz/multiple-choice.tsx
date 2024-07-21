@@ -61,15 +61,31 @@ export default function MultipleChoiceQuiz({
 		setQuiz(output);
 		setSubmitted(false);
 		setSelected('');
-		// setLoaded(true);
+		setLoaded(true);
 	}
 
 	useEffect(() => {
 		generateQuiz();
 	}, []);
 
+	function handleKeyDown(event: React.KeyboardEvent<HTMLDivElement>) {
+		console.log(event.key);
+		if (event.key === 'Enter') {
+			if (!submitted && selected) {
+				setSubmitted(true);
+			}
+			// else if (submitted) {
+			// 	generateQuiz();
+			// }
+		}
+	}
+
 	return (
-		<section className='flex w-[80%] max-w-xl flex-col items-center justify-center gap-8 rounded-md border-2 p-6'>
+		<section
+			className='flex w-[80%] max-w-xl flex-col items-center justify-center gap-8 rounded-md border-2 px-6 py-8'
+			onKeyDown={handleKeyDown}
+			tabIndex={0}
+		>
 			{loaded ? <div>{quiz?.question}</div> : questionSkeleton}
 			<div className='flex w-full flex-col justify-center gap-x-8 gap-y-4 md:grid md:grid-cols-2 lg:gap-y-6'>
 				{loaded
@@ -90,7 +106,7 @@ export default function MultipleChoiceQuiz({
 							// const x = `w-[${Math.floor(Math.random() * idx * 10)}px]`; // TODO: Make these random widths to make it more interesting
 							return (
 								<div
-									className='flex h-12 w-full items-center justify-center rounded-md border-[3px] p-4'
+									className='h-13 flex w-full items-center justify-center rounded-md border-[3px] p-4'
 									key={idx}
 								>
 									<Skeleton className={'h-4 w-[60%]'} />
