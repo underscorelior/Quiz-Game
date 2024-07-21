@@ -6,7 +6,7 @@ export default function FlagQuiz({ options }: { options: Option[] }) {
 	function createQuestion(option: Option): React.ReactNode {
 		return (
 			<FlagImage
-				url={option.flags.replace('w320/', '').replace('.png', '.svg')}
+				url={option.flag.replace('w320/', '').replace('.png', '.svg')}
 			/>
 		);
 	}

@@ -63,9 +63,9 @@ export default function MultipleChoiceQuiz({
 	}, []);
 
 	return (
-		<section className='flex w-[50%] flex-col items-center justify-center gap-8 border-2 p-10'>
+		<section className='flex w-[80%] max-w-xl flex-col items-center justify-center gap-8 rounded-md border-2 p-6'>
 			<div>{quiz?.question}</div>
-			<div className='grid w-full grid-cols-2 justify-center gap-x-8 gap-y-6'>
+			<div className='flex w-full flex-col justify-center gap-x-8 gap-y-4 md:grid md:grid-cols-2 lg:gap-y-6'>
 				{quiz?.options.map((option, idx) => {
 					return (
 						<QuizButton

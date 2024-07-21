@@ -123,9 +123,7 @@ class FlagsQuiz extends Component<props, state> {
 				answer: country.name,
 				isChecked: false,
 				selectedOption: '',
-				flagUrl: `${country.flags
-					.replace('w320/', '')
-					.replace('.png', '.svg')}`,
+				flagUrl: `${country.flag.replace('w320/', '').replace('.png', '.svg')}`,
 			});
 		} catch (error) {
 			console.error(error);

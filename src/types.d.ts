@@ -1,5 +1,5 @@
 interface Option {
-	flags: string;
+	flag: string;
 	name: string;
 	capital: string | string[];
 }
