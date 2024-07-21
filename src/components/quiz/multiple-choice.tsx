@@ -6,19 +6,23 @@
 import { useEffect, useState } from 'react';
 import QuizButton, { EtcQuizButton } from '../quiz-button';
 import { randomElement } from '@/utils/utils';
+import { Skeleton } from '../skeleton';
 
 export default function MultipleChoiceQuiz({
 	options: optJSON,
+	questionSkeleton,
 	createQuestion,
 	formatOption,
 }: {
 	options: Option[];
+	questionSkeleton: React.ReactNode;
 	createQuestion: (option: Option) => React.ReactNode;
 	formatOption: (option: Option) => string;
 }) {
 	const [selected, setSelected] = useState<string>('');
 	const [submitted, setSubmitted] = useState<boolean>(false);
 	const [quiz, setQuiz] = useState<Quiz | null>(null);
+	const [loaded, setLoaded] = useState<boolean>(false);
 
 	function generateRandomOptions(): { options: Option[]; answer: Option } {
 		let countries: Option[] = optJSON;
@@ -45,6 +49,7 @@ export default function MultipleChoiceQuiz({
 	}
 
 	function generateQuiz() {
+		setLoaded(false);
 		const { options, answer } = generateRandomOptions();
 
 		const output: Quiz = {
@@ -56,6 +61,7 @@ export default function MultipleChoiceQuiz({
 		setQuiz(output);
 		setSubmitted(false);
 		setSelected('');
+		// setLoaded(true);
 	}
 
 	useEffect(() => {
@@ -64,21 +70,33 @@ export default function MultipleChoiceQuiz({
 
 	return (
 		<section className='flex w-[80%] max-w-xl flex-col items-center justify-center gap-8 rounded-md border-2 p-6'>
-			<div>{quiz?.question}</div>
+			{loaded ? <div>{quiz?.question}</div> : questionSkeleton}
 			<div className='flex w-full flex-col justify-center gap-x-8 gap-y-4 md:grid md:grid-cols-2 lg:gap-y-6'>
-				{quiz?.options.map((option, idx) => {
-					return (
-						<QuizButton
-							key={idx}
-							option={option}
-							submitted={submitted}
-							selected={selected == option}
-							correct={option == quiz.answer.format}
-							onClick={setSelected}
-							className={'w-full'}
-						/>
-					);
-				})}
+				{loaded
+					? quiz?.options.map((option, idx) => {
+							return (
+								<QuizButton
+									key={idx}
+									option={option}
+									submitted={submitted}
+									selected={selected == option}
+									correct={option == quiz.answer.format}
+									onClick={setSelected}
+									className={'w-full'}
+								/>
+							);
+						})
+					: [0, 1, 2, 3].map((idx) => {
+							// const x = `w-[${Math.floor(Math.random() * idx * 10)}px]`; // TODO: Make these random widths to make it more interesting
+							return (
+								<div
+									className='flex h-12 w-full items-center justify-center rounded-md border-[3px] p-4'
+									key={idx}
+								>
+									<Skeleton className={'h-4 w-[60%]'} />
+								</div>
+							);
+						})}
 			</div>
 			{!submitted ? (
 				<EtcQuizButton disabled={!selected} onClick={() => setSubmitted(true)}>

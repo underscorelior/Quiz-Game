@@ -1,5 +1,6 @@
 'use client';
 import FlagImage from '../flag-image';
+import { Skeleton } from '../skeleton';
 import MultipleChoiceQuiz from './multiple-choice';
 
 export default function FlagQuiz({ options }: { options: Option[] }) {
@@ -18,6 +19,7 @@ export default function FlagQuiz({ options }: { options: Option[] }) {
 	return (
 		<MultipleChoiceQuiz
 			options={options}
+			questionSkeleton={<Skeleton className='h-4 w-[250px]' />}
 			createQuestion={createQuestion}
 			formatOption={formatOption}
 		/>

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from '@/utils/cn';
+import { Skeleton } from './skeleton';
 
 const outerButton = cva(
 	'inline-flex group w-full items-center justify-center rounded-md bg-300% transition-colors focus-visible:outline-none p-[3px] disabled:cursor-not-allowed',
@@ -100,35 +101,7 @@ export default function QuizButton({
 	onClick: (option: string) => void;
 	className?: string;
 }) {
-	function x() {
-		if (submitted) {
-			if (selected) {
-				if (correct) {
-					('correct');
-				} else {
-					('wrong');
-				}
-			} else {
-				if (correct) {
-					('correct_unsel');
-				} else {
-					('default');
-				}
-			}
-		} else {
-			if (selected) {
-				('selected');
-			} else {
-				('default');
-			}
-		}
-	}
 	return (
-		// If submitted, selected and correct = correct
-		// If submitted, selected, and not correct = wrong
-		// if Submitted, not selected, and correct = correct_unsel
-		// if not submitted, selected = selected
-		// If not submitted, not selected = default
 		<Button
 			variant={
 				submitted

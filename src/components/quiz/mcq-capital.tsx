@@ -1,5 +1,6 @@
 'use client';
 import { arrStrToStr } from '@/utils/utils';
+import { Skeleton } from '../skeleton';
 import MultipleChoiceQuiz from './multiple-choice';
 
 export default function CapitalQuiz({ options }: { options: Option[] }) {
@@ -16,6 +17,7 @@ export default function CapitalQuiz({ options }: { options: Option[] }) {
 	return (
 		<MultipleChoiceQuiz
 			options={options}
+			questionSkeleton={<Skeleton className='h-4 w-[250px]' />}
 			createQuestion={createQuestion}
 			formatOption={formatOption}
 		/>
