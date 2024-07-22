@@ -11,23 +11,23 @@
 	}
 
 	.quiz-button-check {
-		@apply quiz-button mt-3 border-[3px] border-neutral-300 text-[1.3rem] font-semibold;
+		@apply quiz-button mt-3 border-3 border-neutral-300 text-[1.3rem] font-semibold;
 	}
 
 	.quiz-button-next {
-		@apply quiz-button mt-3 border-[3px] border-neutral-300 bg-black text-[1.3rem] font-semibold hover:bg-neutral-900/60;
+		@apply quiz-button mt-3 border-3 border-neutral-300 bg-black text-[1.3rem] font-semibold hover:bg-neutral-900/60;
 	}
 
 	.quiz-button-selected {
-		@apply border-[3px] border-neutral-300 bg-zinc-900/90 !text-neutral-50 hover:bg-zinc-900;
+		@apply border-3 border-neutral-300 bg-zinc-900/90 !text-neutral-50 hover:bg-zinc-900;
 	}
 
 	.quiz-button-correct {
-		@apply border-[3px] !border-neutral-300 bg-green-400/90 !text-neutral-50 hover:bg-green-400 disabled:hover:bg-green-400/90;
+		@apply border-3 !border-neutral-300 bg-green-400/90 !text-neutral-50 hover:bg-green-400 disabled:hover:bg-green-400/90;
 	}
 
 	.quiz-button-wrong {
-		@apply border-[3px] !border-neutral-300 bg-red-400/75 !text-neutral-50 hover:bg-red-400 disabled:hover:bg-red-400/75;
+		@apply border-3 !border-neutral-300 bg-red-400/75 !text-neutral-50 hover:bg-red-400 disabled:hover:bg-red-400/75;
 	}
 }
 

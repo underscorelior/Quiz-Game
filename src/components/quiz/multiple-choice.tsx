@@ -87,7 +87,7 @@ export default function MultipleChoiceQuiz({
 	return (
 		<section
 			ref={ref}
-			className='border-3 flex w-[90%] max-w-xl flex-col items-center justify-center gap-8 rounded-md px-6 py-8 focus-within:outline-none'
+			className='flex w-[90%] max-w-xl flex-col items-center justify-center gap-8 rounded-md border-3 px-6 py-8 focus-within:outline-none lg:px-8'
 			onKeyDown={handleKeyDown}
 			tabIndex={0}
 		>
@@ -111,7 +111,7 @@ export default function MultipleChoiceQuiz({
 							// const x = `w-[${Math.floor(Math.random() * idx * 10)}px]`; // TODO: Make these random widths to make it more interesting
 							return (
 								<div
-									className='h-13 flex w-full items-center justify-center rounded-md border-[3px] p-4'
+									className='h-13 flex w-full items-center justify-center rounded-md border-3 p-4'
 									key={idx}
 								>
 									<Skeleton className={'h-4 w-[60%]'} />
