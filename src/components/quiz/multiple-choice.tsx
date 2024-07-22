@@ -87,7 +87,7 @@ export default function MultipleChoiceQuiz({
 	return (
 		<section
 			ref={ref}
-			className='flex w-[90%] max-w-xl flex-col items-center justify-center gap-8 rounded-md border-4 px-6 py-8 focus-within:outline-none'
+			className='border-3 flex w-[90%] max-w-xl flex-col items-center justify-center gap-8 rounded-md px-6 py-8 focus-within:outline-none'
 			onKeyDown={handleKeyDown}
 			tabIndex={0}
 		>

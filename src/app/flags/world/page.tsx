@@ -22,13 +22,13 @@ export default function Quiz() {
 	return (
 		<div className='flex h-full min-h-screen w-full flex-col items-center justify-center gap-y-6'>
 			<FlagQuiz options={worldJSON} />
-			<div className='flex w-full max-w-[70%] justify-between text-lg font-semibold text-zinc-900 md:max-w-[40%]'>
+			<div className='flex w-[90%] justify-between text-lg font-semibold text-zinc-900 md:max-w-[40%]'>
 				{/* <h1 className='flex items-center justify-between'>
 					Flag Score: {flagScore}
 				</h1> */}
 				<Link
 					href='/capitals/world/'
-					className='w-[80%] rounded-md border-2 px-4 py-3'
+					className='ml-auto w-[60%] rounded-md border-2 px-4 py-3 text-center'
 				>
 					World Capitals Quiz
 				</Link>

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import FlagsQuiz from '@/components/old-flags-quiz';
+import FlagsQuiz from '@/components/quiz/old/old-flags-quiz';
 import { Toaster } from 'react-hot-toast';
 import Link from 'next/link';
 
