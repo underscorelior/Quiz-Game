@@ -7,6 +7,6 @@ A quiz website that can be heavily and easily customized and reused. Authenticat
 - Supabase
   
 ## Want to help?
-- Clone the repo and install the required packages using `npm` or `yarn`
-- Run the repo using `npm run dev` or `yarn run dev`.
+- Clone this repo and install the required packages using `npm` or `yarn`
+- Run the project using `npm run dev` or `yarn run dev`.
 - Create a pull request and describe what you have added.
