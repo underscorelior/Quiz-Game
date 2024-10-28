@@ -6,12 +6,9 @@ export default function Quiz() {
 	return (
 		<div className='flex h-full min-h-screen w-full flex-col items-center justify-center gap-y-6'>
 			<CapitalQuiz options={worldJSON} />
-			<div className='flex w-full max-w-[70%] justify-between text-lg font-semibold text-zinc-900 md:max-w-[40%]'>
-				<Link
-					href='/flags/world/'
-					className='w-[80%] rounded-md border-2 px-4 py-3'
-				>
-					World Flags Quiz
+			<div className='flex w-[90%] max-w-xl justify-between text-lg font-semibold text-zinc-900'>
+				<Link href='/' className='rounded-md border-2 px-4 py-3 text-center'>
+					Back to quizzes
 				</Link>
 			</div>
 		</div>
