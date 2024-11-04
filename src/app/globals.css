@@ -29,6 +29,14 @@
 	.quiz-button-wrong {
 		@apply border-3 !border-neutral-300 bg-red-400/75 !text-neutral-50 hover:bg-red-400 disabled:hover:bg-red-400/75;
 	}
+
+	.state {
+		@apply *:fill-stone-300 *:hover:cursor-pointer hover:*:fill-black [&>[data-answer-state=correct]]:cursor-default [&>[data-answer-state=correct]]:fill-green-600 [&>[data-answer-state=wrong]]:cursor-default [&>[data-answer-state=wrong]]:fill-red-600;
+	}
+
+	/* .hide {
+		@apply *:select-none;
+	} */
 }
 
 @layer components {

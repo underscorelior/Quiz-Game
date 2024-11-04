@@ -2,6 +2,12 @@ interface Option {
 	flag: string;
 	name: string;
 	capital: string | string[];
+	short: string;
+}
+
+interface resultOption {
+	option: Option;
+	result: boolean;
 }
 
 interface Quiz {

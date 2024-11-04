@@ -6,7 +6,7 @@ import MultipleChoiceQuiz from './multiple-choice';
 export default function FlagQuiz({ options }: { options: Option[] }) {
 	function createQuestion(option: Option): React.ReactNode {
 		return (
-			<FlagImage
+			<FlagImage // TODO: FIX FOR DC
 				url={option.flag.replace('w320/', '').replace('.png', '.svg')}
 			/>
 		);

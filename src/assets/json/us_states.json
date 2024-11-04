@@ -2,251 +2,307 @@
 	{
 		"flag": "https://flagcdn.com/w320/us-al.png",
 		"name": "Alabama",
-		"capital": "Montgomery"
+		"capital": "Montgomery",
+		"short": "al"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-ak.png",
 		"name": "Alaska",
-		"capital": "Juneau"
+		"capital": "Juneau",
+		"short": "ak"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-az.png",
 		"name": "Arizona",
-		"capital": "Phoenix"
+		"capital": "Phoenix",
+		"short": "az"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-ar.png",
 		"name": "Arkansas",
-		"capital": "Little Rock"
+		"capital": "Little Rock",
+		"short": "ar"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-ca.png",
 		"name": "California",
-		"capital": "Sacramento"
+		"capital": "Sacramento",
+		"short": "ca"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-co.png",
 		"name": "Colorado",
-		"capital": "Denver"
+		"capital": "Denver",
+		"short": "co"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-ct.png",
 		"name": "Connecticut",
-		"capital": "Hartford"
+		"capital": "Hartford",
+		"short": "ct"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-de.png",
 		"name": "Delaware",
-		"capital": "Dover"
+		"capital": "Dover",
+		"short": "de"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-fl.png",
 		"name": "Florida",
-		"capital": "Tallahassee"
+		"capital": "Tallahassee",
+		"short": "fl"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-ga.png",
 		"name": "Georgia",
-		"capital": "Atlanta"
+		"capital": "Atlanta",
+		"short": "ga"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-hi.png",
 		"name": "Hawaii",
-		"capital": "Honolulu"
+		"capital": "Honolulu",
+		"short": "hi"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-id.png",
 		"name": "Idaho",
-		"capital": "Boise"
+		"capital": "Boise",
+		"short": "id"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-il.png",
 		"name": "Illinois",
-		"capital": "Springfield"
+		"capital": "Springfield",
+		"short": "il"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-in.png",
 		"name": "Indiana",
-		"capital": "Indianapolis"
+		"capital": "Indianapolis",
+		"short": "in"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-ia.png",
 		"name": "Iowa",
-		"capital": "Des Moines"
+		"capital": "Des Moines",
+		"short": "ia"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-ks.png",
 		"name": "Kansas",
-		"capital": "Topeka"
+		"capital": "Topeka",
+		"short": "ks"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-ky.png",
 		"name": "Kentucky",
-		"capital": "Frankfort"
+		"capital": "Frankfort",
+		"short": "ky"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-la.png",
 		"name": "Louisiana",
-		"capital": "Baton Rouge"
+		"capital": "Baton Rouge",
+		"short": "la"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-me.png",
 		"name": "Maine",
-		"capital": "Augusta"
+		"capital": "Augusta",
+		"short": "me"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-md.png",
 		"name": "Maryland",
-		"capital": "Annapolis"
+		"capital": "Annapolis",
+		"short": "md"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-ma.png",
 		"name": "Massachusetts",
-		"capital": "Boston"
+		"capital": "Boston",
+		"short": "ma"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-mi.png",
 		"name": "Michigan",
-		"capital": "Lansing"
+		"capital": "Lansing",
+		"short": "mi"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-mn.png",
 		"name": "Minnesota",
-		"capital": "Saint Paul"
+		"capital": "Saint Paul",
+		"short": "mn"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-ms.png",
 		"name": "Mississippi",
-		"capital": "Jackson"
+		"capital": "Jackson",
+		"short": "ms"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-mo.png",
 		"name": "Missouri",
-		"capital": "Jefferson City"
+		"capital": "Jefferson City",
+		"short": "mo"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-mt.png",
 		"name": "Montana",
-		"capital": "Helena"
+		"capital": "Helena",
+		"short": "mt"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-ne.png",
 		"name": "Nebraska",
-		"capital": "Lincoln"
+		"capital": "Lincoln",
+		"short": "ne"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-nv.png",
 		"name": "Nevada",
-		"capital": "Carson City"
+		"capital": "Carson City",
+		"short": "nv"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-nh.png",
 		"name": "New Hampshire",
-		"capital": "Concord"
+		"capital": "Concord",
+		"short": "nh"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-nj.png",
 		"name": "New Jersey",
-		"capital": "Trenton"
+		"capital": "Trenton",
+		"short": "nj"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-nm.png",
 		"name": "New Mexico",
-		"capital": "Santa Fe"
+		"capital": "Santa Fe",
+		"short": "nm"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-ny.png",
 		"name": "New York",
-		"capital": "Albany"
+		"capital": "Albany",
+		"short": "ny"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-nc.png",
 		"name": "North Carolina",
-		"capital": "Raleigh"
+		"capital": "Raleigh",
+		"short": "nc"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-nd.png",
 		"name": "North Dakota",
-		"capital": "Bismarck"
+		"capital": "Bismarck",
+		"short": "nd"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-oh.png",
 		"name": "Ohio",
-		"capital": "Columbus"
+		"capital": "Columbus",
+		"short": "oh"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-ok.png",
 		"name": "Oklahoma",
-		"capital": "Oklahoma City"
+		"capital": "Oklahoma City",
+		"short": "ok"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-or.png",
 		"name": "Oregon",
-		"capital": "Salem"
+		"capital": "Salem",
+		"short": "or"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-pa.png",
 		"name": "Pennsylvania",
-		"capital": "Harrisburg"
+		"capital": "Harrisburg",
+		"short": "pa"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-ri.png",
 		"name": "Rhode Island",
-		"capital": "Providence"
+		"capital": "Providence",
+		"short": "ri"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-sc.png",
 		"name": "South Carolina",
-		"capital": "Columbia"
+		"capital": "Columbia",
+		"short": "sc"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-sd.png",
 		"name": "South Dakota",
-		"capital": "Pierre"
+		"capital": "Pierre",
+		"short": "sd"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-tn.png",
 		"name": "Tennessee",
-		"capital": "Nashville"
+		"capital": "Nashville",
+		"short": "tn"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-tx.png",
 		"name": "Texas",
-		"capital": "Austin"
+		"capital": "Austin",
+		"short": "tx"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-ut.png",
 		"name": "Utah",
-		"capital": "Salt Lake City"
+		"capital": "Salt Lake City",
+		"short": "ut"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-vt.png",
 		"name": "Vermont",
-		"capital": "Montpelier"
+		"capital": "Montpelier",
+		"short": "vt"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-va.png",
 		"name": "Virginia",
-		"capital": "Richmond"
+		"capital": "Richmond",
+		"short": "va"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-wa.png",
 		"name": "Washington",
-		"capital": "Olympia"
+		"capital": "Olympia",
+		"short": "wa"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-wv.png",
 		"name": "West Virginia",
-		"capital": "Charleston"
+		"capital": "Charleston",
+		"short": "wv"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-wi.png",
 		"name": "Wisconsin",
-		"capital": "Madison"
+		"capital": "Madison",
+		"short": "wi"
 	},
 	{
 		"flag": "https://flagcdn.com/w320/us-wy.png",
 		"name": "Wyoming",
-		"capital": "Cheyenne"
+		"capital": "Cheyenne",
+		"short": "wy"
+	},
+	{
+		"flag": "https://upload.wikimedia.org/wikipedia/commons/0/03/Flag_of_Washington%2C_D.C.svg",
+		"name": "District of Colombia",
+		"capital": "Washington, D.C.",
+		"short": "dc"
 	}
 ]
