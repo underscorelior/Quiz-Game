@@ -26,14 +26,9 @@ export default function MapQuiz({ options: optJSON }: { options: Option[] }) {
 			result: short == option?.short,
 		} as resultOption;
 		const ans = [result, ...answered];
-		// console.log(option);
-		// console.log(short, result);
 
-		// console.log(answered.length + ' ' + short == option?.short);
 		generateNewOption();
 		setAnswered(ans);
-
-		// console.log('pre' + answered);
 
 		if (unused.length == 0) {
 			setCompleted(true);
@@ -53,6 +48,7 @@ export default function MapQuiz({ options: optJSON }: { options: Option[] }) {
 
 		generateNewOption();
 		setLoaded(true);
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	return (
