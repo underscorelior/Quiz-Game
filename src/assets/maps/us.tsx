@@ -1,39 +1,29 @@
+'use client';
 import React from 'react';
 
 export default function USMapSVG({
-	// onClick,
 	onMouseUp,
-	// className = '',
-	// onMouseMove,
 }: {
-	// onClick: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
 	onMouseUp: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
-
-	// className: string;
-	// onMouseMove: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
 }) {
 	return (
 		<svg
 			xmlns='http://www.w3.org/2000/svg'
 			aria-labelledby='title'
-			// onClick={(e) => onClick(e)}
 			onMouseUp={(e) => onMouseUp(e)}
-			// onMouseMove={(e) => onMouseMove(e)}
 			width='100%'
 			height='100%'
 			viewBox='0 0 959 593'
-			// className={className}
 		>
 			<defs>
 				<style>
 					{`
 .borders { stroke: #FFFFFF; stroke-width: 1; } /* color and width of borders between states */
 .dccircle { display: inherit; }             /* set display to inherit to show the circle for the District of Columbia */
-.separator1 { stroke: #B0B0B0; stroke-width: 2; } /* color and width of lines around Alaska and Hawaii */
 `}
 				</style>
 			</defs>
-			;
+
 			<g className='state'>
 				<path
 					className='al'

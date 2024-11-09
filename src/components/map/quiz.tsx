@@ -1,11 +1,17 @@
 'use client';
-import { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import { randomElement } from '@/utils/utils';
 import { Skeleton } from '../skeleton';
-import ClickMap from './click';
-import USMapSVG from '@/assets/maps/us';
 
-export default function MapQuiz({ options: optJSON }: { options: Option[] }) {
+export default function MapQuiz({
+	options: optJSON,
+	map: MapElem,
+}: {
+	options: Option[];
+	map: React.ElementType<{
+		onMouseUp: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
+	}>;
+}) {
 	const [option, setOption] = useState<Option | null>(null);
 	const [answered, setAnswered] = useState<resultOption[]>([]);
 	const [unused, setUnused] = useState<Option[]>(optJSON);
@@ -20,10 +26,23 @@ export default function MapQuiz({ options: optJSON }: { options: Option[] }) {
 		console.log(unused.length);
 	}
 
-	function onMouseUp(short: string) {
+	function onMouseUp(e: React.MouseEvent<SVGSVGElement, MouseEvent>) {
+		const name = (e.target as SVGElement).getAttribute('class') || '';
+
+		const state =
+			(e.target as SVGElement).getAttribute('data-answer-state') || '';
+
+		if (
+			name.includes('sep') ||
+			name.includes('-') ||
+			name.length == 0 ||
+			state.length != 0
+		)
+			return;
+
 		const result = {
 			option,
-			result: short == option?.short,
+			result: name == option?.short,
 		} as resultOption;
 		const ans = [result, ...answered];
 
@@ -34,7 +53,24 @@ export default function MapQuiz({ options: optJSON }: { options: Option[] }) {
 			setCompleted(true);
 		}
 
-		return ans;
+		ans.forEach((ans) => {
+			findElementFromName(ans.option.short).setAttribute(
+				'data-answer-state',
+				ans.result ? 'correct' : 'wrong',
+			);
+		});
+	}
+
+	function findElementFromName(short: string) {
+		if (short == 'dc') {
+			const elms = document.getElementsByClassName(short);
+
+			for (let i = 0; elms.length > i; i++) {
+				if (elms[i].nodeName == 'circle') return elms[i];
+			}
+		}
+
+		return document.getElementsByClassName(short)[0];
 	}
 
 	function countCorrect(): number {
@@ -43,11 +79,10 @@ export default function MapQuiz({ options: optJSON }: { options: Option[] }) {
 
 	useEffect(() => {
 		setLoaded(false);
-
 		setUnused(optJSON);
-
 		generateNewOption();
 		setLoaded(true);
+
 		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
@@ -64,7 +99,12 @@ export default function MapQuiz({ options: optJSON }: { options: Option[] }) {
 			</h1>
 			<div className='flex h-full w-[95%] flex-col justify-center gap-x-8 gap-y-4 lg:w-full lg:gap-y-6'>
 				{loaded ? (
-					<ClickMap onMouseUp={onMouseUp} />
+					// <ClickMap onMouseUp={onMouseUp} />
+					<MapElem
+						onMouseUp={(e: React.MouseEvent<SVGSVGElement, MouseEvent>) => {
+							onMouseUp(e);
+						}}
+					/>
 				) : (
 					<Skeleton className='h-full min-h-[24rem] w-full' />
 				)}
