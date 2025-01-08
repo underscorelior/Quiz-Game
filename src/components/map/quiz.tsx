@@ -82,9 +82,7 @@ export default function MapQuiz({
 	}
 
 	function disableNotIncluded() {
-		const elems = document.getElementsByTagName('path');
-		console.log(elems, [...(elems as any)]);
-		Array.from(elems).forEach((e) => {
+		Array.from(document.getElementsByTagName('path')).forEach((e) => {
 			if (!unused.some((x) => e.classList.contains(x.short))) {
 				e.style.opacity = '0.6';
 				e.style.pointerEvents = 'none';

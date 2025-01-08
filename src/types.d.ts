@@ -1,7 +1,7 @@
 interface Option {
 	flag: string;
 	name: string;
-	capital: string | string[];
+	capital: string[];
 	short: string;
 }
 
@@ -16,5 +16,25 @@ interface Quiz {
 	answer: {
 		full: Option;
 		format: string;
+	};
+}
+
+interface CountryData {
+	name: string;
+	capital: string[];
+	short: string;
+	flag: {
+		url: string;
+		svg: string;
+		colors: string[];
+		shapes: string[];
+		elements: string[];
+	};
+	geography: {
+		continents: string[];
+		region: string;
+		subregion: string;
+		landlocked: boolean | null;
+		borders: string[];
 	};
 }
