@@ -1,5 +1,4 @@
 'use client';
-import { arrStrToStr } from '@/utils/utils';
 import { Skeleton } from '../skeleton';
 import MultipleChoiceQuiz from './multiple-choice';
 
@@ -11,7 +10,7 @@ export default function CapitalQuiz({ options }: { options: Option[] }) {
 	}
 
 	function formatOption(option: Option): string {
-		return arrStrToStr(option.capital);
+		return option.capital.join(', ');
 	}
 
 	return (

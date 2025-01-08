@@ -31,12 +31,16 @@
 	}
 
 	.state {
-		@apply *:fill-stone-300 *:hover:cursor-pointer hover:*:fill-black [&>[data-answer-state=correct]]:cursor-default [&>[data-answer-state=correct]]:fill-green-600 [&>[data-answer-state=wrong]]:cursor-default [&>[data-answer-state=wrong]]:fill-red-600;
+		@apply *:fill-stone-300 *:stroke-white *:hover:cursor-pointer hover:*:fill-black [&>[data-answer-state=correct]]:cursor-default [&>[data-answer-state=correct]]:fill-green-600 [&>[data-answer-state=wrong]]:cursor-default [&>[data-answer-state=wrong]]:fill-red-600;
 	}
 
 	/* .hide {
 		@apply *:select-none;
 	} */
+
+	#large_masses_of_water-0 {
+		@apply hidden !fill-white;
+	}
 }
 
 @layer components {
