@@ -10,7 +10,9 @@ export default function CapitalQuiz({ options }: { options: Option[] }) {
 	}
 
 	function formatOption(option: Option): string {
-		return option.capital.join(', ');
+		return Array.isArray(option.capital)
+			? option.capital.join(', ')
+			: option.capital;
 	}
 
 	return (

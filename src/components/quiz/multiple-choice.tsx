@@ -66,7 +66,7 @@ export default function MultipleChoiceQuiz({
 
 	useEffect(() => {
 		generateQuiz();
-	}, [generateQuiz]);
+	}, []);
 
 	useEffect(() => {
 		if (ref.current) {
