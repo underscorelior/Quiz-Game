@@ -1,3 +1,4 @@
+// TODO: Add vatican and san marino, fix malta on map, fix andorra on map, add monaco, fix slow loading time
 'use client';
 import React, { useRef, useState } from 'react';
 import { randomElement } from '@/utils/utils';
@@ -6,9 +7,11 @@ import Timer from '../timer/timer';
 
 export default function MapQuiz({
 	options: optJSON,
+	identifier,
 	map: MapElem,
 }: {
 	options: Option[];
+	identifier: 'class' | 'id';
 	map: React.ElementType<{
 		onMouseUp: (e: React.MouseEvent<SVGSVGElement, MouseEvent>) => void;
 	}>;
@@ -28,27 +31,20 @@ export default function MapQuiz({
 
 	function generateNewOption() {
 		const opt = randomElement(unused) as Option;
-
 		setOption(opt);
 		setUnused(unused.filter((item) => item.short !== opt.short));
 	}
 
 	function onMouseUp(e: React.MouseEvent<SVGSVGElement, MouseEvent>) {
 		const target = e.target as SVGElement;
-		const name = target.getAttribute('class') || '';
+		const name = target.getAttribute(identifier) || '';
 		const state = target.getAttribute('data-answer-state') || '';
 
-		if (
-			name.includes('sep') ||
-			name.includes('-') ||
-			name.length == 0 ||
-			state.length != 0
-		)
-			return;
+		if (name.includes('sep') || name.length == 0 || state.length != 0) return;
 
 		const result = {
 			option,
-			result: name === option?.short,
+			result: name.split('-')[0] === option?.short,
 		} as resultOption;
 
 		const ans = [result, ...answered];
@@ -65,7 +61,18 @@ export default function MapQuiz({
 	}
 
 	function markResult(result: resultOption) {
-		const element = findElementFromName(result.option.short);
+		let element;
+
+		if (identifier == 'class')
+			element = findElementFromName(result.option.short);
+		else
+			findIdFromName(result.option.short || '').forEach((elem) =>
+				elem.setAttribute(
+					'data-answer-state',
+					result.result ? 'correct' : 'wrong',
+				),
+			);
+
 		if (element)
 			element.setAttribute(
 				'data-answer-state',
@@ -73,19 +80,43 @@ export default function MapQuiz({
 			);
 	}
 
+	function findIdFromName(short: string) {
+		const elemList = Array.from(document.getElementsByTagName('g')).concat(
+			Array.from(document.getElementsByTagName('path')),
+		);
+		const element = elemList.filter((e) => e.id.includes(short));
+
+		return element;
+	}
+
 	function findElementFromName(short: string) {
-		const elems = document.getElementsByClassName(short);
+		let elems;
+
+		if (identifier == 'class')
+			elems = document.getElementsByClassName(short)[0];
+		else elems = document.getElementById(short);
+
 		if (short === 'dc') {
-			return Array.from(elems).find((elem) => elem.nodeName === 'circle');
+			return Array.from(document.getElementsByClassName(short)).find(
+				(elem) => elem.nodeName === 'circle',
+			);
 		}
-		return elems[0];
+
+		return elems;
 	}
 
 	function disableNotIncluded() {
 		Array.from(document.getElementsByTagName('path')).forEach((e) => {
-			if (!unused.some((x) => e.classList.contains(x.short))) {
-				e.style.opacity = '0.6';
-				e.style.pointerEvents = 'none';
+			if (identifier === 'class') {
+				if (!unused.some((x) => e.classList.contains(x.short))) {
+					e.style.opacity = '0.6';
+					e.style.pointerEvents = 'none';
+				}
+			} else {
+				if (!unused.some((x) => e.id.includes(x.short))) {
+					e.style.opacity = '0.6';
+					e.style.pointerEvents = 'none';
+				}
 			}
 		});
 	}
@@ -142,6 +173,7 @@ export default function MapQuiz({
 				<Timer
 					ref={timerRef}
 					hideBtn={!completed}
+					decimalPaused={true}
 					className='col-start-2 flex w-full justify-center'
 				/>
 			</div>

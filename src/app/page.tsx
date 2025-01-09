@@ -8,6 +8,7 @@ export default function Home() {
 			<Link href={'/map/us'}>US Map</Link>
 			<Link href={'/capitals/world'}>World Capitals</Link>
 			<Link href={'/flags/world'}>World Flags</Link>
+			<Link href={'/map/europe'}>Europe Map</Link>
 		</main>
 	);
 }

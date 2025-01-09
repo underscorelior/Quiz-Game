@@ -1,0 +1,260 @@
+[
+	{
+		"flag": "https://flagcdn.com/w320/al.png",
+		"name": "Albania",
+		"capital": "Tirana",
+		"short": "al"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/ad.png",
+		"name": "Andorra",
+		"capital": "Andorra la Vella",
+		"short": "ad"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/at.png",
+		"name": "Austria",
+		"capital": "Vienna",
+		"short": "at"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/by.png",
+		"name": "Belarus",
+		"capital": "Minsk",
+		"short": "by"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/be.png",
+		"name": "Belgium",
+		"capital": "Brussels",
+		"short": "be"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/ba.png",
+		"name": "Bosnia and Herzegovina",
+		"capital": "Sarajevo",
+		"short": "ba"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/bg.png",
+		"name": "Bulgaria",
+		"capital": "Sofia",
+		"short": "bg"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/hr.png",
+		"name": "Croatia",
+		"capital": "Zagreb",
+		"short": "hr"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/cy.png",
+		"name": "Cyprus",
+		"capital": "Nicosia",
+		"short": "cy"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/cz.png",
+		"name": "Czech Republic",
+		"capital": "Prague",
+		"short": "cz"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/dk.png",
+		"name": "Denmark",
+		"capital": "Copenhagen",
+		"short": "dk"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/ee.png",
+		"name": "Estonia",
+		"capital": "Tallinn",
+		"short": "ee"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/fi.png",
+		"name": "Finland",
+		"capital": "Helsinki",
+		"short": "fi"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/fr.png",
+		"name": "France",
+		"capital": "Paris",
+		"short": "fr"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/de.png",
+		"name": "Germany",
+		"capital": "Berlin",
+		"short": "de"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/gr.png",
+		"name": "Greece",
+		"capital": "Athens",
+		"short": "gr"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/hu.png",
+		"name": "Hungary",
+		"capital": "Budapest",
+		"short": "hu"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/is.png",
+		"name": "Iceland",
+		"capital": "Reykjavik",
+		"short": "is"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/ie.png",
+		"name": "Ireland",
+		"capital": "Dublin",
+		"short": "ie"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/it.png",
+		"name": "Italy",
+		"capital": "Rome",
+		"short": "it"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/lv.png",
+		"name": "Latvia",
+		"capital": "Riga",
+		"short": "lv"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/lt.png",
+		"name": "Lithuania",
+		"capital": "Vilnius",
+		"short": "lt"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/lu.png",
+		"name": "Luxembourg",
+		"capital": "Luxembourg City",
+		"short": "lu"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/mk.png",
+		"name": "North Macedonia",
+		"capital": "Skopje",
+		"short": "mk"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/md.png",
+		"name": "Moldova",
+		"capital": "Chisinau",
+		"short": "md"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/nl.png",
+		"name": "Netherlands",
+		"capital": "Amsterdam",
+		"short": "nl"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/no.png",
+		"name": "Norway",
+		"capital": "Oslo",
+		"short": "no"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/pl.png",
+		"name": "Poland",
+		"capital": "Warsaw",
+		"short": "pl"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/pt.png",
+		"name": "Portugal",
+		"capital": "Lisbon",
+		"short": "pt"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/ro.png",
+		"name": "Romania",
+		"capital": "Bucharest",
+		"short": "ro"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/rs.png",
+		"name": "Serbia",
+		"capital": "Belgrade",
+		"short": "rs"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/tr.png",
+		"name": "Turkey",
+		"capital": "Ankara",
+		"short": "tr"
+	},
+	{
+		"name": "Georgia",
+		"capital": "Tbilisi",
+		"short": "ge",
+		"flag": "https://flagcdn.com/w320/ge.png"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/ru.png",
+		"name": "Russia",
+		"capital": "Moscow",
+		"short": "ru"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/xk.png",
+		"name": "Kosovo",
+		"capital": "Pristina",
+		"short": "xk"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/si.png",
+		"name": "Slovenia",
+		"capital": "Ljubljana",
+		"short": "si"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/es.png",
+		"name": "Spain",
+		"capital": "Madrid",
+		"short": "es"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/se.png",
+		"name": "Sweden",
+		"capital": "Stockholm",
+		"short": "se"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/sk.png",
+		"name": "Slovakia",
+		"capital": "Bratislava",
+		"short": "sk"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/ch.png",
+		"name": "Switzerland",
+		"capital": "Bern",
+		"short": "ch"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/ua.png",
+		"name": "Ukraine",
+		"capital": "Kyiv",
+		"short": "ua"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/gb.png",
+		"name": "United Kingdom",
+		"capital": "London",
+		"short": "gb"
+	},
+	{
+		"flag": "https://flagcdn.com/w320/me.png",
+		"name": "Montenegro",
+		"capital": "Podgorica",
+		"short": "me"
+	}
+]
